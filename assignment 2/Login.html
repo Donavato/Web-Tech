@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- HEADER -->
+    <head>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    </head>
+    <!-- BODY -->
+    <body>
+        <div id="blackBox">
+                <ul id="nav">
+                    <li><a href="Home.html"><h2 style="font-size: 10px; font-family: Orbitron">Home</h2></a></li>
+                    <li><a href="Services.html"><h2 style="font-size: 10px; font-family: Orbitron">Services</h2></a></li>
+                    <li><a href="Rewards.html"><h2 style="font-size: 10px; font-family: Orbitron">Rewards</h2></a></li>
+                    <li><a href="Login.html"><h2 style="font-size: 10px; font-family: Orbitron">Login</h2></a></li>
+                </ul>
+            </div>
+        <h1 style="text-align: center">I.T Admin Login</h1>
+        <hr>
+        <form style="font-family: Orbitron; color: #bcbcbc; margin-left: 10%">
+            <label>Password: &nbsp;&nbsp;&nbsp;</label>
+            <input  name="adminBox" id="admin_password" type="password">
+            <br><br>
+            <label>Display: &nbsp;&nbsp;&nbsp;</label>
+            <input name="show" type="text" id="showPass">
+            <br><br>
+            <button type="button" onclick="savePass()">Enter</button>
+        </form>
+        <br>
+        <form action="Inv.html" style="font-family:Orbitron;color: #bcbcbc;margin-left: 10%">
+            <input type="submit" value="Home Page" />
+        </form>
+        <script type="text/javascript">
+            var pass = document.getElementById("admin_password");
+
+            function savePass() {
+                localStorage.setItem("adminBox", pass.value);
+            }
+        </script>
+    </body>
+
+</html>

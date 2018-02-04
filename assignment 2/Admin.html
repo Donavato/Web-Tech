@@ -9,30 +9,32 @@
     <body>
         <h1 style="text-align: center">I.T Admin Login</h1>
         <hr>
-        <form>
-            <label style="font-family: Orbitron; color: #bcbcbc; margin-left: 10%">Password: &nbsp;&nbsp;&nbsp;</label>
-
+        <form style="font-family: Orbitron; color: #bcbcbc; margin-left: 10%">
+            <label>Password: &nbsp;&nbsp;&nbsp;</label>
             <input  name="adminBox" id="admin_password" type="password">
             <br><br>
-            <button type="button" onclick="savePass()">Enter</button>
-
-            <button type="button" onclick="displayPass()">Show</button>
+            <label>Display: &nbsp;&nbsp;&nbsp;</label>
+            <input name="show" type="text" id="showPass">
             <br><br>
-            <input type="text" id="showPass" readonly>
+            <button type="button" onclick="savePass()">Enter</button>
+            <button type="button" onclick="displayPass()">Show</button>
         </form>
+        <br>
+        <form action="Home.html" style="font-family:Orbitron;color: #bcbcbc;margin-left: 10%">
+            <input type="submit" value="Home Page" />
+        </form>
+        
+
         <script type="text/javascript">
             var pass = document.getElementById("admin_password");
+            var showpass =  document.getElementById("showPass");
 
             function savePass() {
                 localStorage.setItem("adminBox", pass.value);
-                document.getElementById("showPass").innerHTML = localStorage.getItem("adminBox");
-
             }
             function displayPass(){
-                document.getElementById("showPass").innerHTML = localStorage.getItem("adminBox");
-
+                showpass.value= localStorage.getItem("adminBox");   
             }
-
         </script>
     </body>
 
