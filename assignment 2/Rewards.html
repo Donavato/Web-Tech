@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- HEADER -->
+    <head>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    </head>
+    <!-- BODY -->
+    <body>
+        <div id="blackBox">
+            <ul id="nav">
+                <li><a href="Home.html"><h2 style="font-size: 10px; font-family: Orbitron">Home</h2></a></li>
+                <li><a href="Services.html"><h2 style="font-size: 10px; font-family: Orbitron">Services</h2></a></li>
+                <li><a href="Rewards.html"><h2 style="font-size: 10px; font-family: Orbitron">Rewards</h2></a></li>
+                <li><a href="Login.html"><h2 style="font-size: 10px; font-family: Orbitron">Login</h2></a></li>
+            </ul>
+        </div>
+        <br><br>
+        <div id="content">
+            <h1 style="font-family: Orbitron; color: #ff3a29; text-align: center;font-size: 30px">Sign Up To Stay Up-To-Date!</h1>
+            <form method="get" enctype="application/x-www-form-urlencoded" action="http://www.tipjar.com/cgi-bin/test" style="font-family: Orbitron">
+                <label>Title: </label>
+                <select>
+                    <option selected>----</option>
+                    <option>Mr. </option>
+                    <option>Mrs.</option>
+                    <option>Miss </option>
+                </select>
+                <br><br>
+                <label >First name: </label>
+                <input type="text" name="txtFirstName">
+                <br><br>
+                <label >Last name: </label>
+                <input type="text" name="txtLastName">
+                <br><br>
+                <label >Please Select Mail type: </label>
+                <br>
+                <input type="radio" name="mailChoice"> Email
+                <br>
+                <input type="radio" name="mailChoice"> Snail Mail
+                <br><br>
+                <label>Please Enter your Email: </label>
+                <br>
+                <input name="Email" type="email">
+                <br><br>
+                <label>Please Enter Your Home address: </label>
+                <br>
+                <input name="Address" type="text">
+                <br><br>
+                <input type="submit" style="font-family: Orbitron" value="Submit">
+                <input type="reset" style="font-family: Orbitron" value="Reset">
+            </form>
+            <br>
+            <button  style="font-family: Orbitron;" onclick="myFunction()">Try it</button>
+
+            <script>
+                function myFunction() {
+                    alert("I am an alert box!");
+                }
+            </script>
+        </div>
+    </body>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <!-- FOOTER -->
+    <footer>
+        <br><br>
+        <address style="font-family: Orbitron; color: #bcbcbc;">
+            Written by <a href="mailto:webmaster@example.com" style="color: #ff3a29">Danny Haki</a><br>
+            Visit us at: <span style="color: #ff3a29">12345 Elm Street</span><br>
+            Phone: <span style="color: #ff3a29">555-555-5555</span><br>
+            Itsupportnotreal.com<br>
+            Box 555, Imaginaryland<br>
+            USA, 2018 &#9400;
+        </address>
+    </footer>
+</html>

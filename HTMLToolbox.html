@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html>
+
+<!--==================================================================
+//
+// Title: HTML Toolbox
+// Description:
+//   This web page demonstrates various HTML tags.
+// 
+//=================================================================-->
+
+<head>
+
+  <title>HTML Toolbox</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Dan Ouellette"/>
+  <meta name="description" content="HTML Toolbox"/>
+  <meta http-equiv="Expires" content="-1">
+  <script type="text/javascript">
+    "use strict";
+
+    //================================================================
+    // decToHex
+    //================================================================
+    function decToHex(decNumber)
+    {
+      var hexString;
+      hexString = Number(decNumber).toString(16);
+      if (hexString.length == 1)
+      {
+        hexString = '0' + hexString;
+      }
+      return hexString;
+    }
+
+    //================================================================
+    // randomizeBackgroundColor
+    //================================================================
+    function randomizeBackgroundColor()
+    {
+
+      // Declare variables
+      var redCode;
+      var greenCode;
+      var blueCode;
+      var colorString;
+
+      // Randomize background color
+      redCode = Math.floor(Math.random() * 56) + 200;
+      greenCode = Math.floor(Math.random() * 56) + 200;
+      blueCode = Math.floor(Math.random() * 56) + 200;
+      colorString = '#' + decToHex(redCode) + decToHex(greenCode) + 
+        decToHex(blueCode);
+      document.getElementById('bPage').style.backgroundColor = 
+        colorString;
+
+    }
+    
+  </script>
+  
+</head>
+
+<!-- ----------------------------------------------------------- -->
+<!-- Body with onload event (insure there is only one event per page) -->
+<!-- ----------------------------------------------------------- -->
+<body id="bPage" onload="randomizeBackgroundColor()">
+
+  <!-- Page header -->
+  <h1>HTML Toolbox</h1>
+  <hr style="background-color:yellow;height:12px">
+
+  <!--================================================================
+  // Comments
+  //===============================================================-->
+
+  <p><b>Comments</b></p>
+
+  <!-- Single-line comment -->
+
+  <!-- Multi-line
+    ...
+    ...
+    comment -->
+  
+  <hr>
+
+  <!--================================================================
+  // Pre-defined heading styles
+  //===============================================================-->
+
+  <p><b>Pre-defined heading styles</b></p>
+  
+  <h1>H1 style</h1>
+  <h2>H2 style</h2>
+  <h3>H3 style</h3>
+  <h4>H4 style</h4>
+  <h5>H5 style</h5>
+  <h6>H6 style</h6>
+
+  <hr>
+
+  <!--================================================================
+  // Line breaks
+  //===============================================================-->
+  
+  <p><b>Line breaks</b></p>
+
+  <br>
+  
+  <hr>
+
+  <!--================================================================
+  // Label
+  //===============================================================-->
+
+  <p><b>Label</b></p>
+
+  <label>Here is a label</label>
+  
+  <hr>
+
+  <!--================================================================
+  // Paragraphs
+  //===============================================================-->
+
+  <p><b>Paragraphs</b></p>
+
+  <p>Here is a paragraph that may span more than one line.
+  It may be formatted to use a particular font.</p>
+
+  <p>Here is another paragraph.
+  Paragraphs automatically resize as the surrounding window is resized.
+  </p>
+
+  <p>Here is    another       paragraph.
+    
+  Extra  spaces and blank    lines are ignored.               </p>
+  
+  <hr>
+
+  <!--================================================================
+  // Span
+  //===============================================================-->
+
+  <p><b>Span</b></p>
+
+  <label>Before the span ...</label>
+  <span>
+    <label>Here is label 1</label>
+    <label>Here is label 2</label>
+    <label>Here is label 3</label>
+  </span>
+  <label>After the span ...</label>
+  
+  <hr>
+
+  <!--================================================================
+  // Div
+  //===============================================================-->
+
+  <p><b>Div</b></p>
+
+  <label>Before the div ...</label>
+  <div>
+    <label>Here is label 1</label>
+    <label>Here is label 2</label>
+    <label>Here is label 3</label>
+  </div>
+  <label>After the div ...</label>
+  
+  <hr>
+
+  <!--================================================================
+  // Styling elements
+  //===============================================================-->
+
+  <p><b>Styling & elements</b></p>
+
+  <b>Bold style</b><br>
+  <i>Italics style</i><br>
+  <u>Underline style</u><br>
+  <label>Subscript </label><sub>style</sub><br>
+  <label>Superscript </label><sup>style</sup><br>
+  
+  <hr>
+
+  <!--================================================================
+  // Special characters
+  //===============================================================-->
+
+  <p><b>Special characters</b></p>
+
+  &amp; Ampersand<br>
+  &apos; Single quote<br>
+  &gt; Greater than sign<br>
+  &lt; Less than sign<br>
+  &quot; Double quote<br>
+  &nbsp; Non-breaking space<br>
+  &mdash; Em dash<br>
+  &ndash; En dash<br>
+  &copy; Copyright<br>
+  &#63; Question mark (using HTML number)
+  
+  <hr>
+
+  <!--================================================================
+  // Image
+  //===============================================================-->
+
+  <!-- Link to an image file on this computer.  The linked file must 
+  exist in the same folder as the web page. -->
+  <p><b>Image</b></p>
+  
+  <!-- Use this approach. It prevents internal or external styles 
+  from changing image sizing. -->
+  <img 
+    src="FreedomTower.jpg" alt="Image Missing!" 
+    style="width:264px; height:329px"
+  />
+  <!-- Don't use this approach -->
+  <img
+    src="FreedomTower.jpg" alt="Image Missing!"
+    width="264" height="329" 
+  />
+  
+  <hr>
+ 
+  <!--================================================================
+  // Links, part 1 of 2
+  //===============================================================-->
+  
+  <!-- Links to other web pages and within page pages -->
+  <p><b>Links</b></p>
+
+  <!-- Link to another web page on a web server -->
+  <p><b>Link to another web page on another web server</b></p>
+  <a href="http://www.usatoday.com/">USA Today</a>
+  <br>
+
+  <!-- Link to another web page on this computer.  The linked HTML 
+    document must exist in the same folder as the linking HTML 
+    document. -->
+  <p><b>Link to another web page on this computer</b></p>
+  <a href="WaterPressureCalculator.html">Water Pressure Calculator</a>
+  <br>
+
+  <!-- Link to another spot on this web page.  The spot with ID 
+    "EndOfPage" must exist somewhere in this HTML file. -->
+  <p id="MiddleOfPage"><b>Link to another spot within this web page</b></p>
+  <a href="#EndOfPage">Jump to the end of the web page</a>
+  <br>
+  
+  <!-- Open an e-mail application and start a message to the specified e-mail -->
+  <p><b>Open an e-mail application and start a message to the specified e-mail</b></p>
+  <a href="mailto:somebody@somewhere.com">Send e-mail to someobody</a>
+  <br>
+
+  <!-- Link via an image to another web page on this computer.  The image link must 
+    exist in the same folder as the linking HTML document. -->
+  <p><b>Link via an image to another web page on this computer"</b></p>
+  <a href="WaterPressureCalculator.html"><img src="WaterTower.jpg" 
+    alt="Image Missing!" width="427" height="640" /></a>
+  
+  <hr>
+
+  <!--================================================================
+  // Unordered lists
+  //===============================================================-->
+  
+  <p><b>Unordered list (default symbol)</b></p>
+  <ul>
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+  </ul>  
+  
+  <p><b>Unordered list (square symbol)</b></p>
+  <ul style="list-style-type:square">
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+  </ul>  
+  
+  <p><b>Unordered list (circle symbol)</b></p>
+  <ul style="list-style-type:circle">
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+  </ul>  
+  
+  <p><b>Unordered list (image symbol)</b></p>
+  <ul style="list-style-image:url(RedArrow.png)">
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+  </ul>  
+  
+  <p><b>Unordered list (unfound image symbol and default symbol)</b></p>
+  <ul style="list-style-image:url(RedArrow2.png)">
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+  </ul>  
+  
+  <p><b>Unordered list (unfound image symbol and square symbol)</b></p>
+  <ul style="list-style:url(RedArrow2.png) square">
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+  </ul>  
+
+  <hr>
+
+  <!--================================================================
+  // Ordered lists
+  //===============================================================-->
+  
+  <p><b>Ordered list (default numbering)</b></p>
+  <ol>
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+    <li>List item 4</li>
+  </ol>
+  
+  <p><b>Ordered list (decimal-leading-zero numbering)</b></p>
+  <ol style="list-style-type:decimal-leading-zero">
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+    <li>List item 4</li>
+  </ol>
+  
+  <p><b>Ordered list (lower-alpha numbering)</b></p>
+  <ol style="list-style-type:lower-alpha">
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+    <li>List item 4</li>
+  </ol>
+  
+  <p><b>Ordered list (lower-roman numbering)</b></p>
+  <ol style="list-style-type:lower-roman">
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+    <li>List item 4</li>
+  </ol>
+  
+  <p><b>Ordered list (upper-alpha numbering)</b></p>
+  <ol style="list-style-type:upper-alpha">
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+    <li>List item 4</li>
+  </ol>
+  
+  <p><b>Ordered list (upper-roman numbering)</b></p>
+  <ol style="list-style-type:upper-roman">
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+    <li>List item 4</li>
+  </ol>
+  
+  <hr>
+
+  <!--================================================================
+  // Tables
+  //===============================================================-->
+
+  <!--================================================================
+  // Table With No Column or Row Spanning
+  //===============================================================-->
+  
+  <p><b>Table With No Column or Row Spanning</b></p>
+ 
+  <table style="border:2px; width:100%">
+  
+    <!-- Caption -->
+    <caption>
+      <b>Here is a table with no column or row spanning</b>
+    </caption>
+    
+    <!-- Column specs -->
+    <colgroup>
+      <col width="25%" style="background-color:yellow">
+      <col width="75%" style="background-color:lightgreen">
+    </colgroup>
+    
+    <!-- Column headers -->
+    <thead>
+      <tr>
+        <td>
+          <b>column header 1</b>
+        </td>
+        <td>
+          <b>column header 2</b>
+        </td>
+      </tr>
+    </thead>
+    
+    <!-- Column footers -->
+    <tfoot>
+      <tr>
+        <td>
+          <b>column footer 1</b>
+        </td>
+        <td>
+          <b>column footer 2</b>
+        </td>
+      </tr>
+    </tfoot>
+    
+    <!-- Rows and columns -->
+    <tbody>
+      <tr>
+        <td>
+          row 1, col 1
+        </td>
+        <td>
+          row 1, col 2
+        </td>
+      </tr>
+      <tr>
+        <td>
+          row 2, col 1
+        </td>
+        <td>
+          row 2, col 2
+        </td>
+      </tr>
+      <tr>
+        <td>
+          row 3, col 1
+        </td>
+        <td>
+          row 3, col 2
+        </td>
+      </tr>
+    <tbody>
+
+  </table>
+
+  <!--================================================================
+  // Table With Column Spanning
+  //===============================================================-->
+  
+  <p><b>Table With Column Spanning</b></p>
+ 
+  <table style="border:2px; width:100%">
+  
+    <!-- Caption -->
+    <caption><b>Here is a table with column spanning</b></caption>
+    
+    <!-- Column specs -->
+    <colgroup>
+      <col width="25%" style="background-color:orange">
+      <col width="75%" style="background-color:yellow">
+    </colgroup>
+    
+    <!-- Rows and columns -->
+    <tbody>
+      <tr>
+        <td colspan="2">
+          row 1, col 1 and col 2
+        </td>
+      </tr>
+      <tr>
+        <td>
+          row 2, col 1
+        </td>
+        <td>
+          row 2, col 2
+        </td>
+      </tr>
+    <tbody>
+
+  </table>
+
+  <!--================================================================
+  // Table With Row Spanning
+  //===============================================================-->
+  
+  <p><b>Table With Row Spanning</b></p>
+ 
+  <table style="border:2px; width:100%">
+  
+    <!-- Caption -->
+    <caption><b>Here is a table with row spanning</b></caption>
+    
+    <!-- Column specs -->
+    <colgroup>
+      <col width="25%" style="background-color:lightblue">
+      <col width="25%" style="background-color:yellow">
+      <col width="50%" style="background-color:lightgray">
+    </colgroup>
+    
+    <!-- Rows and columns -->
+    <tbody>
+      <tr>
+        <td>
+          row 1, col 1
+        </td>
+        <td>
+          row 1, col 2
+        </td>
+        <td rowspan="2">
+          row 1 and 2, col 3
+        </td>
+      </tr>
+      <tr>
+        <td>
+          row 2, col 1
+        </td>
+        <td>
+          row 2, col 2
+        </td>
+      </tr>
+    <tbody>
+
+  </table>
+  
+  <hr>
+
+  
+  <!--================================================================
+  // Text boxes
+  //===============================================================-->
+
+  <p><b>Text boxes</b></p>
+
+  <label>Text box with default size of ~20 characters: </label>
+    <input type="text">
+  <br>
+
+  <label>Text box with size of 4 characters: </label>
+    <input type="text" size="4">
+  <br>
+
+  <label>Text box accepting up to 8 characters: </label>
+    <input type="text" maxlength="8">
+  <br>
+
+  <label>Read-only text box: </label>
+    <input type="text" value="WSU" readonly >
+  <br>
+
+  <hr>
+
+  <!--================================================================
+  // Text areas
+  //===============================================================-->
+
+  <p><b>Text areas</b></p>
+
+  <textarea rows="3" cols="30"></textarea>
+  <br>
+
+  <textarea rows="4" cols="40" maxlength="20"></textarea>
+  <br>
+
+  <hr>
+
+  <!--================================================================
+  // List box
+  //===============================================================-->
+
+  <p><b>List box</b></p>
+
+  <label>List box: </label>
+    <input list="options">
+    
+  <datalist id="options">
+    <option value="option-1">
+    <option value="option-2">
+    <option value="option-3">
+  </datalist> 
+  <br>
+
+  <hr>
+
+  <!--================================================================
+  // Combo boxes
+  //===============================================================-->
+
+  <p><b>Combo boxes</b></p>
+    
+  <!-- Combo box -->
+  <label>Combo box: </label>
+  <select>
+    <option>option-1</option>
+    <option>option-2</option>
+    <option selected>option-3</option>
+  </select> 
+  <br><br>
+  
+  <!-- Combo box with grouped options -->
+  <label>Combo box with grouped options: </label>
+  <select>
+    <optgroup label="option-group-1">
+      <option selected>option-1-1</option>
+      <option>option-1-2</option>
+    </optgroup>
+    <optgroup label="option-group-2">
+      <option>option-2-1</option>
+      <option>option-2-2</option>
+    </optgroup>
+  </select> 
+  <br>
+
+  <hr>
+
+  <!--================================================================
+  // Field sets
+  //===============================================================-->
+
+  <p><b>Field sets</b></p>
+    
+  <!-- Field set -->
+  <fieldset>
+    <legend>Fieldset</legend>
+    <label>Enter your information here:</label>
+    <br><br>
+    <label>Text box 1: </label><input type="text">
+    <br><br>
+    <label>Text box 2: </label><input type="text">
+    <br><br>
+  </fieldset>
+  <br>
+
+  <hr>
+
+  <!--================================================================
+  // Check boxes
+  //===============================================================-->
+
+  <p><b>Check boxes</b></p>
+    
+  <!-- Field set -->
+  <fieldset>
+    <legend>Check boxes</legend>
+
+    <!-- Check boxes -->
+    <input type="checkbox">Check box 1<br>
+    <input type="checkbox">Check box 2<br>
+    <input type="checkbox" checked="checked">Check box 3<br>
+
+  </fieldset>
+
+  <hr>
+  
+  <!--================================================================
+  // Radio buttons
+  //===============================================================-->
+
+  <p><b>Radio buttons</b></p>
+    
+  <!-- Field set -->
+  <fieldset>
+    <legend>Radio buttons</legend>
+
+    <!-- Radio buttons -->
+    <input type="radio" name="rbGroup"> Radio button 1<br>
+    <input type="radio" name="rbGroup"> Radio button 2<br>
+    <input type="radio" name="rbGroup"> Radio button 3<br>
+    <input type="radio" name="rbGroup" checked> Radio button 4<br>
+  </fieldset>
+
+  <hr>
+    
+  <!--================================================================
+  // Buttons
+  //===============================================================-->
+
+  <p><b>Buttons</b></p>
+    
+  <!-- Buttons -->
+  <input type="button" value="Click here!">
+  <br><br>
+  
+  <button>Click here!</button>
+  <br><br>
+  
+  <button>
+    <img src="CheckMark.png" alt="" width="15" height="15"/>
+    Click here!
+  </button>
+  <br>
+
+  <hr>
+
+  <!--================================================================
+  // Forms
+  //===============================================================-->
+
+  <!--================================================================
+  // Form using Get method
+  //===============================================================-->
+  
+  <p><b>Form Using Get Method</b></p>
+
+  <form 
+    method="get" 
+    enctype="application/x-www-form-urlencoded"
+    action="http://www.tipjar.com/cgi-bin/test" 
+    >
+    <label>First name: </label>
+    <input type="text" name="txtFirstName">
+    <br><br>
+    <label>Last name: </label>
+    <input type="text" name="txtLastName">
+    <br><br>
+    <label>Hometown: </label>
+    <input type="text">
+    <br><br>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+  </form>
+  
+  <hr>
+
+  <!--================================================================
+  // Form using Post method
+  //===============================================================-->
+  
+  <p><b>Form Using Post Method</b></p>
+
+  <form 
+    method="post" 
+    enctype="application/x-www-form-urlencoded"
+    action="http://www.tipjar.com/cgi-bin/test" 
+    >
+    
+    <label>First name: </label>
+    <input type="text" name="txtFirstName">
+    <br><br>
+    <label>Last name: </label>
+    <input type="text" name="txtLastName">
+    <br><br>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+  </form>
+  
+  <hr>
+
+  <!--================================================================
+  // Form using other form elements
+  //===============================================================-->
+  
+  <p><b>Form Using Other Form Elements</b></p>
+
+  <!-- Form -->
+  <form 
+    method="get" 
+    enctype="application/x-www-form-urlencoded"
+    action="http://www.tipjar.com/cgi-bin/test" 
+    >
+
+    <!-- Inputs -->
+    <label>Inputs</label>
+    <br><br>
+    <label>Text box (size=10, max size=20): </label>
+    <input type="text" name="txtFirstName" size="10" maxlength="20">
+    <br><br>
+    <label>Text box (read-only): </label>
+    <input type="text" name="txtFirstName" value="Detroit" readonly >
+    <br><br>
+    
+    <!-- Combo box -->
+    <label>Combo box:</label>
+    <select name="cmbCity">
+      <option value="C">Cleveland</option>
+      <option value="D">Dallas</option>
+      <option value="N" selected>New York</option>
+    </select> 
+    <br><br>
+    
+    <!-- Combo box with grouped options -->
+    <label>Combo box with grouped options:</label>
+    <select name="cmbBoatType">
+      <optgroup label="Sailboat">
+        <option value="sunfish">Sunfish</option>
+        <option value="sailfish">Sailfish</option>
+      </optgroup>
+      <optgroup label="Motorboat">
+        <option value="speedboat">Speedboat</option>
+        <option value="yacht">Yacht</option>
+      </optgroup>
+    </select> 
+    <br><br>
+    
+    <!-- Radio buttons -->
+    <label>Radio buttons</label>
+    <br>
+    <input type="radio" name="season" value="Fall"> Fall<br>
+    <input type="radio" name="season" value="Winter"> Winter<br>
+    <input type="radio" name="season" value="Spring"> Spring<br>
+    <input type="radio" name="season" value="Summer"> Summer<br>
+    <br>
+    
+    <!-- Check boxes -->
+    <label>Check boxes</label>
+    <br>
+    <input type="checkbox" name="medium1" value="Newspaper">Newspaper<br>
+    <input type="checkbox" name="medium2" value="Web site">Web site<br>
+    <input type="checkbox" name="medium3" value="Gossip">Gossip<br>
+    <br>
+
+    <!-- Text area -->
+    <label>Text area:</label>
+    <br>
+    <textarea name="taDescription" rows="3" cols="30"></textarea>
+    <br><br>
+
+    <!-- Field set -->
+    <fieldset>
+      <legend>Fieldset</legend>
+      <br>
+      <label>First name: </label>
+      <input type="text" name="txtFirstName">
+      <br><br>
+      <label>Last name: </label>
+      <input type="text" name="txtLastName">
+      <br><br>
+    </fieldset>
+    <br>
+
+    <!-- Buttons -->
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+
+  </form>
+  
+  <hr>
+  
+  <!--================================================================
+  // Password text boxes
+  //===============================================================-->
+
+  <p><b>Password text boxes</b></p>
+ 
+  <label>Password text box: </label>
+    <input type="password">
+  <br>
+ 
+  <label>Password text box (accepting up to 8 characters): </label>
+    <input type="password" maxlength="8">
+  <br>
+
+  <hr>
+  
+  <!--================================================================
+  // Hidden text boxes
+  //===============================================================-->
+
+  <p><b>Hidden text boxes</b></p>
+ 
+  <label>Hidden text box (string value): </label>
+  <input type="hidden" value="hidden data">
+  <br>
+ 
+  <label>Hidden text box (numeric value): </label>
+  <input type="hidden" value="1978">
+  <br>
+
+  <hr>
+  
+  <!--================================================================
+  // Block quotes
+  //===============================================================-->
+
+  <p><b>Block quotes</b></p>
+ 
+  <label>Block quote without citation:</label>
+    <blockquote>
+      Here is the block quote.
+    </blockquote>
+ 
+  <label>Block quote with citation:</label>
+    <blockquote cite="https://en.wikipedia.org/wiki/We_shall_fight_on_the_beaches">
+      We shall go on to the end. We shall fight in France, we shall fight on the seas and oceans, we shall fight with growing confidence and growing strength in the air, we shall defend our island, whatever the cost may be. We shall fight on the beaches, we shall fight on the landing grounds, we shall fight in the fields and in the streets, we shall fight in the hills; we shall never surrender.
+      <br><br>
+      <i>&mdash; Winston Churchill, House of Commons, 4 June 1940</i>
+    </blockquote>
+
+  <hr>
+      
+  <!--================================================================
+  // Audio player
+  //===============================================================-->
+
+  <p><b>Audio player</b></p>
+
+  <audio preload="auto" controls>
+    <source src="Note1.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <hr>  
+      
+  <!--================================================================
+  // Video player
+  //===============================================================-->
+
+  <p><b>Video player</b></p>
+
+  <video width="200" height="100" controls>
+    <source src="Clip1.mp4" type="video/mp4">
+    Your browser does not support the video element.
+  </video>
+  
+  <hr>  
+
+  <!--================================================================
+  // Form using autocomplete attribute
+  //===============================================================-->
+  
+  <p><b>Form Using autocomplete Attribute</b></p>
+
+  <form 
+    method="get" 
+    enctype="application/x-www-form-urlencoded"
+    action="http://www.tipjar.com/cgi-bin/test"     
+    >
+    
+    <label>First name (autocomplete not set): </label>
+    <input type="text" name="txtFirstName">
+    <br><br>
+    
+    <!-- Autocomplete set to off -->
+    <label>Last name (autocomplete off): </label>
+    <input type="text" name="txtLastName" autocomplete="off">
+    <br><br>
+    
+    <!-- Autocomplete won't work here since no name specified for element -->
+    <label>Hometown (autocomplete on): </label>
+    <input type="text" autocomplete="on">
+    <br><br>
+
+    <!-- Buttons -->
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+    
+  </form>
+  
+  <hr>
+
+  <!--================================================================
+  // Form using new HTML5 form elements
+  //===============================================================-->
+  
+  <p><b>Form Using New HTML5 Form Elements</b></p>
+
+  <!-- Form -->
+  <form 
+    method="get" 
+    enctype="application/x-www-form-urlencoded"
+    action="http://www.tipjar.com/cgi-bin/test" 
+    >
+
+    <!-- Inputs (not available in all browsers) -->
+    <label>Inputs</label>
+    <br><br>
+    
+    <label>Color: </label>
+    <input type="color" name="inpColor">
+    <br><br>
+    
+    <label>Date: </label>
+    <input type="date" name="inpDate">
+    <br><br>
+    
+    <label>Date-time local: </label>
+    <input type="datetime-local" name="inpDateTime">
+    <br><br>
+    
+    <label>Email: </label>
+    <input type="email" name="inpEmail">
+    <br><br>
+    
+    <label>Month: </label>
+    <input type="month" name="inpMonth">
+    <br><br>
+    
+    <label>Number: </label>
+    <input type="number" name="inpNumber" 
+      min="0" step="5" max="100">
+    <br><br>
+    
+    <label>Text box accepting integers: </label>
+      <input type="text" name="inpInteger" 
+        pattern="[0-9]*" 
+        title="Enter zero or more digits.">
+    <br><br>
+    
+    <label>Text box accepting real numbers: </label>
+      <input type="text" name="inpRealNumber" 
+        pattern="[0-9]*.{0,1}[0-9]*" 
+        title="Enter zero or more digits with an optional decimal point.">
+    <br><br>
+
+    <label>Range: </label>
+    <input type="range" name="inpRange" id="inpRange" 
+      min="0" step="5" max="100"
+      onchange="rangeValueChanged()"  
+      >
+    <input type="text" id="txtRangeValue" size="4" readonly>
+    <br><br>
+    <script type="text/javascript">
+      function rangeValueChanged()
+      {
+        document.getElementById('txtRangeValue').value = 
+          document.getElementById('inpRange').value;
+      }
+    </script>
+    
+    <!-- tel not yet supported by any browser -->
+    <label>Telephone: </label>
+    <input type="tel" name="inpTelephone">
+    <br><br>
+    
+    <label>Time: </label>
+    <input type="time" name="inpTime" size="40">
+    <br><br>
+    
+    <label>URL: </label>
+    <input type="url" name="inpURL">
+    <br><br>
+    
+    <label>Week: </label>
+    <input type="week" name="inpWeek">
+    <br><br>
+    
+    <!-- file will be useful when PHP is covered -->
+    <label>File: </label>
+    <input type="file" name="inpFile">
+    <br><br>
+
+    <!-- Buttons -->
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+
+  </form>
+  
+  <hr>
+ 
+  <!--================================================================
+  // Links, part 2 of 2
+  //===============================================================-->
+  
+  <!-- Links to other web pages and within page pages -->
+  <p><b>Links, part 2 of 2</b></p>
+
+  <!-- Link to another spot on this web page.  The spot with ID 
+    "MiddleOfPage" must exist somewhere in this HTML file. -->
+  <p div id="EndOfPage">You're at the end of the page.</p>
+  <a href="#MiddleOfPage">Jump to the middle of the web page</a>
+  
+</body>
+ 
+</html>

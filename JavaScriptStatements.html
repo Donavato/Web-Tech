@@ -1,0 +1,3039 @@
+<!DOCTYPE html>
+<html>
+
+<!--==================================================================
+//
+// Title: JavaScript Statements
+// Description:
+//   This web page demonstrates JavaScript.
+// 
+//=================================================================-->
+
+<head>
+
+	<title>JavaScript Statements</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Dan Ouellette"/>
+  <meta name="description" content="JavaScript Statements"/>
+  <meta http-equiv="Expires" content="-1">
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // decToHex
+    //==================================================
+    function decToHex(decNumber)
+    {
+      var hexString;
+      hexString = Number(decNumber).toString(16);
+      if (hexString.length == 1)
+      {
+        hexString = '0' + hexString;
+      }
+      return hexString;
+    }
+
+    //==================================================
+    // randomizeBackgroundColor
+    //==================================================
+    function randomizeBackgroundColor()
+    {
+
+      // Declare variables
+      var redCode;
+      var greenCode;
+      var blueCode;
+      var colorString;
+
+      // Randomize background color
+      redCode = Math.floor(Math.random() * 56) + 200;
+      greenCode = Math.floor(Math.random() * 56) + 200;
+      blueCode = Math.floor(Math.random() * 56) + 200;
+      colorString = '#' + decToHex(redCode) + decToHex(greenCode) + 
+        decToHex(blueCode);
+      document.getElementById('bPage').style.backgroundColor = 
+        colorString;
+      updateStatus("Web page ready.");
+
+    }
+    
+  </script>
+  
+</head>
+
+<!-- ------------------------------------------------------------- -->
+<!-- Body with onload event (there is only one load event per page) -->
+<!-- ------------------------------------------------------------- -->
+<body id="bPage" onload="randomizeBackgroundColor()">
+
+  <!-- Page header -->
+  <h1>JavaScript Statements</h1>
+  <hr style="background-color:yellow;height:12px">
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- Methods write and writeln -->
+  <!-- ----------------------------------------------------------- -->
+  <p><b>Methods write and writeln</b></p>
+  
+  <script type="text/javascript">
+
+    // Show write and writeln methods
+    document.write("write method here ...");
+    document.writeln();
+    document.write("writeln method here ...");
+    
+  </script>
+  
+  <hr>
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- Methods write and writeln with tag <pre> -->
+  <!-- ----------------------------------------------------------- -->
+  <p><b>Methods write and writeln with pre tag</b></p>
+  <script type="text/javascript">
+
+    // Show write and writeln methods
+    document.write("<pre>");
+    document.write("write method here ...");
+    document.writeln();
+    document.write("writeln method here ...");
+    document.write("</pre>");
+    
+  </script>
+  
+  <hr>
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- Methods write and writeln with several tags -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+
+    // Show write and writeln methods
+    document.write("<pre>");
+    document.write("<p><b>Methods write and writeln with several ",
+      "tags</b></p>");
+    document.write("write method here ...");
+    document.writeln();
+    document.write("writeln method here ...");
+    document.write("</pre>");
+    document.write("<hr>");
+    
+  </script>
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- Escape sequences -->
+  <!-- ----------------------------------------------------------- -->
+  <p><b>Escape sequences</b></p>
+  <script type="text/javascript">
+
+    // Show write and writeln methods
+    document.write("<pre>");
+    document.writeln("The backslash (\\) character is used in a ",
+      "file path.");
+    document.writeln('A single quote (\') may be used as a string ',
+      'literal delimiter.');
+    document.writeln("A double quote (\") may also be used as a ",
+      "string literal delimiter.");
+    document.writeln("We can advance the line cursor\nin a string ",
+      "literal.");
+    document.write("</pre>");
+    
+  </script>
+  
+  <hr>
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- Concatenation operator -->
+  <!-- ----------------------------------------------------------- -->
+  <p><b>Concatenation/addition operator</b></p>
+  <script type="text/javascript">
+
+    // Show write and writeln methods
+    document.write("<pre>");
+    document.writeln("First string " + "Second string");
+    document.writeln("Calculation: " + 5 + 4);
+    document.writeln(5 + 4);
+    document.write("One output line spanning" +
+                     " two physical lines.");
+    document.write("</pre>");
+    
+  </script>
+  
+  <hr>
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- Alert dialog box -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+
+    //==================================================
+    // showAlert
+    //==================================================
+    function showAlert()
+    {
+      window.alert("Hello Friends!");
+      alert("Hello Enemies!");
+    }
+    
+  </script>
+  <p><b>Alert dialog box</b></p>
+  <button 
+    onclick="showAlert()"
+    style="font-size:14px">
+    Show alert dialog box
+  </button>
+  
+  <hr>
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- Prompt box -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // showPrompt
+    //==================================================
+    function showPrompt()
+    {
+
+      // Declare variables
+      var city;
+
+      // Prompt for and get city
+      //city = window.prompt("Enter your hometown:");  // Prompt without default value
+      city = prompt("Enter your hometown:", "Detroit");  // Prompt with default value
+
+      // Test if city entered
+      if (city == null) 
+        document.writeln("<b>You don't know where you're from?!</b>");
+      else
+        document.writeln("'" + city + "' is a great town!");
+      
+    }
+    
+  </script>
+  <p><b>Prompt box</b></p>
+  <button 
+    type="button" 
+    onclick="showPrompt()"
+    style="font-size:14px">
+    Show prompt
+  </button>
+  
+  <hr>  
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- Confirm dialog box -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // showConfirm
+    //==================================================
+    function showConfirm()
+    {
+
+      // Declare variables
+      var option;
+
+      // Prompt for and get confirmation
+      //option = window.confirm("Are you sure you want to do this?");
+      option = confirm("Are you sure you want to do this?");
+      if (option)
+        alert("You said YES (option is '" + option + "')!");
+      else 
+        alert("You said NO (option is '" + option + "')!");
+
+    }
+    
+  </script>
+  <p><b>Confirm dialog box</b></p>
+  <button 
+    type="button" 
+    onclick="showConfirm()"
+    style="font-size:14px">
+    Show confirm dialog box
+  </button>
+  
+  <hr>
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- Console log -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // writeToConsoleLog
+    //==================================================
+    function writeToConsoleLog()
+    {
+      var d = new Date();
+      window.console.log("Current date and time: " + d);
+      console.log("Current date and time in milliseconds: " + 
+        d.getTime());
+    }
+    
+  </script>
+  <p><b>Console log</b></p>
+  <button 
+    type="button" 
+    onclick="writeToConsoleLog()"
+    style="font-size:14px">
+    Write to console log
+  </button>
+  
+  <hr>
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- parseInt -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runParseInt
+    //==================================================
+    function runParseInt()
+    {
+
+      // Declare variables
+      var str;
+      var num;
+
+      // Prompt for and get number
+      str = prompt("Enter a whole number:");
+
+      // Test if number entered
+      if (str == null) 
+        document.writeln("No number entered.");
+      else
+      {
+        num = parseInt(str);
+        if (isNaN(num))
+          document.writeln("'" + str + "' is an invalid whole number.");
+        else
+          document.writeln("'" + num + "' is a valid whole number.");
+      }
+      
+    }
+    
+  </script>
+  <p><b>parseInt</b></p>
+  <button 
+    type="button" 
+    onclick="runParseInt()"
+    style="font-size:14px">
+    Run parseInt
+  </button>
+  
+  <hr>  
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- parseFloat -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runParseFloat
+    //==================================================
+    function runParseFloat()
+    {
+
+      // Declare variables
+      var str;
+      var num;
+
+      // Prompt for and get number
+      str = prompt("Enter a real number:");
+
+      // Test if number entered
+      if (str == null) 
+        document.writeln("No number entered.");
+      else
+      {
+        num = parseFloat(str);
+        if (isNaN(num))
+          document.writeln("'" + str + "' is an invalid real number.");
+        else
+          document.writeln("'" + num + "' is a valid real number.");
+      }
+      
+    }
+    
+  </script>
+  <p><b>parseFloat</b></p>
+  <button 
+    type="button" 
+    onclick="runParseFloat()"
+    style="font-size:14px">
+    Run parseFloat
+  </button>
+  
+  <hr>  
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- parseInt with radix -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // parseIntWithRadix
+    //==================================================
+    function parseIntWithRadix()
+    {
+
+      // Declare variables
+      var str;
+      var num;
+
+      // Prompt for and get number
+      str = prompt("Enter a hexadecimal number to convert to decimal:");
+
+      // Test if number entered
+      if (str == null) 
+        document.writeln("No hexadecimal number entered.");
+      else
+      {
+        num = parseInt(str,16);
+        if (isNaN(num))
+          document.writeln("'" + str + "' is an invalid hexadecimal number.");
+        else
+          document.writeln("Hexadecimal number '" + str + 
+            "' has been converted to decimal number '" + num + "'.");
+      }
+      
+    }
+    
+  </script>
+  <p><b>parseInt with radix</b></p>
+  <button 
+    type="button" 
+    onclick="parseIntWithRadix()"
+    style="font-size:14px">
+    Run parseInt with radix
+  </button>
+  
+  <hr>  
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- Variable data types -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runVariableDataTypes
+    //==================================================
+    function runVariableDataTypes()
+    {
+
+      // Declare variables
+      var x;
+
+      // Set variable to integer and show
+      x = 78;
+      alert("Type: " + typeof(x) + "\nValue: " + x);
+
+      // Set variable to real number and show
+      x = 34.28;
+      alert("Type: " + typeof(x) + "\nValue: " + x);
+
+      // Set variable to string and show
+      x = "WSU";
+      alert("Type: " + typeof(x) + "\nValue: " + x);
+
+      // Set variable to boolean value and show
+      x = true;
+      alert("Type: " + typeof(x) + "\nValue: " + x);
+
+      // Set variable to boolean value and show
+      x = null;
+      alert("Type: " + typeof(x) + "\nValue: " + x);
+
+      // Set variable to undefined value and show
+      x = undefined;
+      alert("Type: " + typeof(x) + "\nValue: " + x);
+
+      // Set variable to array and show
+      x = ["Add", "Subtract", "Multiply", "Divide"];
+      alert("Type: " + typeof(x) + "\nValue: " + x);
+
+      // Set variable to object and show
+      x = {firstName:"Ronald", lastName:"Reagan"};
+      alert("Type: " + typeof(x) + "\nValue: " + x.firstName + " " + x.lastName);
+
+      // Set variable to object with function and show
+      x =
+      {
+        city:"Dallas",
+        state:"Texas",
+        fullName: function(){ return this.city + ", " + this.state; }
+      };
+      alert("Type: " + typeof(x) + "\nValue2: " + x.city + ", " + x.state);
+      alert("Type: " + typeof(x) + "\nValue3: " + x.fullName());
+      
+    }
+    
+  </script>
+  <p><b>Variable data types</b></p>
+  <button 
+    type="button" 
+    onclick="runVariableDataTypes()"
+    style="font-size:14px">
+    Run variable data types
+  </button>
+  
+  <hr>
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- Arithmetic operators -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+
+    //==================================================
+    // runArithmeticOperators
+    //==================================================
+    function runArithmeticOperators()
+    {
+
+      // Show each arithmetic operator
+      document.writeln("<pre>");
+      document.writeln("Addition:       5 + 4 = " + (5 + 4));
+      document.writeln("Subtraction:    5 - 4 = " + (5 - 4));
+      document.writeln("Multiplication: 5 * 4 = " + (5 * 4));
+      document.writeln("Division:       5 / 4 = " + (5 / 4));
+      document.writeln("Division:       5 / 0 = " + (5 / 0));
+      document.writeln("Remainder:      5 % 4 = " + (5 % 4));
+      document.writeln("</pre>");
+    
+    }
+    
+  </script>
+  <p><b>Arithmetic operators</b></p>
+  <button 
+    type="button" 
+    onclick="runArithmeticOperators()"
+    style="font-size:14px">
+    Run arithmetic operators
+  </button>
+  
+  <hr>  
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- Divide by zero -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runDivideByZero
+    //==================================================
+    function runDivideByZero()
+    {
+
+      // Declare variables
+      var str;
+      var num;
+
+      // Loop to prompt for and add numbers
+      str = prompt("Enter a number to divide 24 by:"); 
+      num = parseInt(str);
+      if (isNaN(num))
+        alert("'" + str + "' is an invalid number.");
+      else if (num == 0)
+        alert("Error: although you cannot divide by zero, " +
+                     "JavaScript makes an attempt - " + "24 / 0 = " + 
+                     (24 / 0));
+      else
+        alert("24 / " + num + " = " + (24 / num));
+      
+    }
+    
+  </script>
+  <p><b> Divide by zero</b></p>
+  <button 
+    type="button" 
+    onclick="runDivideByZero()"
+    style="font-size:14px">
+     Divide by zero
+  </button>
+  
+  <hr>  
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- JavaScript debugging statements -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runJavaScriptDebuggingStatements
+    //==================================================
+    function runJavaScriptDebuggingStatements()
+    {
+
+      // Declare variables
+      var i;
+      var base;
+
+      // Loop to send debugging output to console
+      base = 1;
+      for (i = 1; i <= 4; i++)
+      {
+        console.log("i is now " + i);
+        base = base * 2;
+        console.log("base is now " + base);
+      }
+      
+    }
+    
+  </script>
+  <p><b>JavaScript debugging statements</b></p>
+  <button 
+    type="button" 
+    onclick="runJavaScriptDebuggingStatements()"
+    style="font-size:14px">
+     Run JavaScript debugging statements
+  </button>
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- if statements -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runIfStatements
+    //==================================================
+    function runIfStatements()
+    {
+
+      // Declare variables
+      var str;
+      var num;
+
+      // Prompt for and get number
+      str = prompt("Enter a whole number:");
+
+      // Test if number entered
+      document.writeln("<pre>");
+      if (str == null) 
+        document.writeln("No number entered.");
+      else
+      {
+
+        // Test if number valid
+        num = parseInt(str);
+        if (isNaN(num))
+          document.writeln("'" + str + "' is an invalid whole number.");
+        else
+        {
+
+          // Test if number negative, positive, or zero
+          if (num < 0)
+            document.writeln("'" + num + "' is less than zero.");
+          else if (num > 0)
+            document.writeln("'" + num + "' is greater than zero.");
+          else
+            document.writeln("'" + num + "' is equal to zero.");
+
+          // Test if number even or odd
+          if (num % 2 == 0)
+            document.writeln("'" + num + "' is even.");
+          else if (num > 0)
+            document.writeln("'" + num + "' is odd.");
+
+        }
+        
+      }
+      document.writeln("</pre>");
+    
+    }
+    
+  </script>
+  <p><b>if statements</b></p>
+  <button 
+    type="button" 
+    onclick="runIfStatements()"
+    style="font-size:14px">
+    Run if statements
+  </button>
+  
+  <hr>  
+   
+  <!-- ----------------------------------------------------------- -->
+  <!-- switch statement -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runSwitchStatements
+    //==================================================
+    function runSwitchStatements()
+    {
+
+      // Declare variables
+      var num;
+      var str;
+
+      // Prompt for and get number
+      num = prompt("Enter a number between 0 and 2:");
+
+      // Categorize number
+      document.writeln("<pre>");
+      document.writeln("switch Statement 1");
+      switch(num)
+      {
+        case 0:
+          document.writeln("You entered 0.");
+          break;
+        case 1:
+          document.writeln("You entered 1.");
+          break;
+        case 2:
+          document.writeln("You entered 2.");
+          break;
+       default:
+          document.writeln("'" + num + "' is outside the valid range.");
+          break;
+      } 
+      document.writeln("</pre>");
+
+      // Prompt for and get number
+      str = prompt("Enter a letter between 'a' and 'c':");
+
+      // Categorize number
+      document.writeln("<pre>");
+      document.writeln("switch Statement 2");
+      switch(str)
+      {
+        case 'a':
+          document.writeln("You entered 'a'.");
+          break;
+        case 'b':
+          document.writeln("You entered 'b'.");
+          break;
+        case 'c':
+          document.writeln("You entered 'c'.");
+          break;
+       default:
+          document.writeln("'" + str + "' is outside the valid range.");
+          break;
+      } 
+      document.writeln("</pre>");
+      
+    }
+    
+  </script>
+  <p><b>switch statement</b></p>
+  <button 
+    type="button" 
+    onclick="runSwitchStatements()"
+    style="font-size:14px">
+    Run switch statement
+  </button>
+  
+  <hr>  
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- Ternary operator -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runTernaryOperator
+    //==================================================
+    function runTernaryOperator()
+    {
+
+      // Declare variables
+      var num;
+
+      // Prompt for and get number
+      num = prompt("Enter the number of days until the event:");
+
+      // Show number
+      document.writeln("The event will occur in " + num + (num == 1 ? " day." : " days."));
+      
+    }
+    
+  </script>
+  <p><b>Ternary operator</b></p>
+  <button 
+    type="button" 
+    onclick="runTernaryOperator()"
+    style="font-size:14px">
+    Run ternary operator
+  </button>
+  
+  <hr>  
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- while statement - sentinel loop -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runWhileStatementSentinelLoop
+    //==================================================
+    function runWhileStatementSentinelLoop()
+    {
+
+      // Declare variables
+      var str;
+      var num;
+      var sum = 0;
+      var count = 0;
+
+      // Loop to prompt for and add numbers
+      str = prompt("Enter a number (-99 to exit):"); 
+      num = parseInt(str);
+      while (num != -99)
+      {
+        if (isNaN(num))
+          alert("'" + str + "' is an invalid number.");
+        else
+        {
+          sum = sum + num;
+          count = count + 1;
+        }
+        str = prompt("Enter a number (-99 to exit):"); 
+        num = parseInt(str);
+      } 
+      document.writeln("<pre>");
+      document.writeln("Sum:   " + sum);
+      document.writeln("Count: " + count);
+      document.writeln("</pre>");
+      
+    }
+    
+  </script>
+  <p><b>while statement - sentinel loop</b></p>
+  <button 
+    type="button" 
+    onclick="runWhileStatementSentinelLoop()"
+    style="font-size:14px">
+    Run while statement - sentinel loop
+  </button>
+  
+  <hr>  
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- while statement - validation loop -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runWhileStatementValidationLoop
+    //==================================================
+    function runWhileStatementValidationLoop()
+    {
+
+      // Declare variables
+      var str;
+      var price;
+
+      // Loop to prompt for and get a price
+      str = prompt("Enter a price between $10 and $20:"); 
+      price = parseInt(str);
+      while (price < 10 || price > 20)
+      {
+        alert("Error: '$" + price + "' is an invalid price.");
+        str = prompt("Enter a price between $10 and $20:"); 
+        price = parseInt(str);
+      } 
+      alert("'$" + price + "' is a valid price.");
+      
+    }
+    
+  </script>
+  <p><b>while statement - validation loop</b></p>
+  <button 
+    type="button" 
+    onclick="runWhileStatementValidationLoop()"
+    style="font-size:14px">
+    Run while statement - validation loop
+  </button>
+  
+  <hr>  
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- for statements -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runForStatements
+    //==================================================
+    function runForStatements()
+    {
+
+      // Declare variables
+      var str;
+      var loops;
+      var i;
+
+      // Prompt for and get number of loops
+      str = prompt("Enter the number of times to loop:"); 
+      loops = parseInt(str);
+
+      // Run specified number of loops
+      document.writeln("<pre>");
+      document.writeln("Loop up");
+      for (i = 1; i <= loops; i++)
+      {
+        document.writeln("i is now " + i);
+      } 
+      document.writeln("</pre>");
+
+      // Don't run this infinite loop
+      /*
+      document.writeln("<pre>");
+      for (;;)
+      {
+        document.writeln("In the loop here ...");
+      } 
+      document.writeln("</pre>");
+      */
+
+      // Run specified number of loops
+      document.writeln("<pre>");
+      document.writeln("Loop down");
+      for (i = loops; i >= 1; i--)
+      {
+        document.writeln("i is now " + i);
+      } 
+      document.writeln("</pre>");
+      
+    }
+    
+  </script>
+  <p><b>for statements</b></p>
+  <button 
+    type="button" 
+    onclick="runForStatements()"
+    style="font-size:14px">
+    Run for statements
+  </button>
+  
+  <hr>  
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- User-defined methods -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // cubeNumberWithReturn
+    //==================================================
+    function cubeNumberWithReturn(num)
+    {
+      return num * num * num;
+    }
+
+    //==================================================
+    // cubeNumberWithoutReturn
+    //==================================================
+    function cubeNumberWithoutReturn(num)
+    {
+      var cube = num * num * num;
+    }
+
+    //==================================================
+    // runUserDefinedMethods
+    //==================================================
+    function runUserDefinedMethods()
+    {
+      document.writeln("<pre>");
+      document.writeln("\nFunctions with and without return statement");
+      document.writeln("Number cubed (with return):    " + cubeNumberWithReturn());
+      document.writeln("Number cubed (with return):    " + cubeNumberWithReturn(4));
+      document.writeln("Number cubed (with return):    " + cubeNumberWithReturn(4,5,8,9));
+      document.writeln("Number cubed (without return): " + cubeNumberWithoutReturn(4));
+      document.writeln("</pre>");
+    }
+    
+  </script>
+  <p><b>User-defined Methods</b></p>
+  <button 
+    type="button" 
+    onclick="runUserDefinedMethods()"
+    style="font-size:14px">
+    Run user-defined methods
+  </button>
+  
+  <hr>  
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- Random number generation -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runRandomNumberGeneration
+    //==================================================
+    function runRandomNumberGeneration()
+    {
+    
+      // Declare variables
+      var str;
+      var low;
+      var range;
+      var count;
+      
+      // Prompt for and get low number of random-number range
+      str = prompt("Enter the low number of the random-number range:"); 
+      low = parseInt(str);
+      
+      // Prompt for and get random-number range
+      str = prompt("Enter the random-number range:"); 
+      range = parseInt(str);
+
+      // Prompt for and get number of random numbers to generate
+      str = prompt("Enter number of random numbers to generate:"); 
+      count = parseInt(str);
+
+      // Run specified number of loops
+      document.writeln("<pre>");
+      document.writeln("Random numbers between " + low + 
+        " and (but not including) " + (low + range) + ":");
+      for (var i = 1; i <= count; i++)
+      {
+        document.writeln(Math.floor(Math.random() * range) + low);
+      } 
+      document.writeln("</pre>");
+    }
+    
+  </script>
+  <p><b>Random number generation</b></p>
+  <button 
+    type="button" 
+    onclick="runRandomNumberGeneration()"
+    style="font-size:14px">
+    Run random number generation
+  </button>
+  
+  <hr>  
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- Arrays -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // randomizeArray
+    //==================================================
+    function randomizeArray(arr, upperBound)
+    {
+    
+      // Declare variables
+      var i;
+    
+      // Loop to store random values in array
+      for (i = 0; i < arr.length; i++)
+        arr[i] = Math.floor(Math.random() * upperBound);
+    
+    }
+
+    //==================================================
+    // printArray
+    //==================================================
+    function printArray(arrName, arr)
+    {
+    
+      // Declare variables
+      var i;
+      var spaces;
+
+      // Loop to print array values
+      document.writeln("\nArray " + arrName);
+      document.writeln("Array size: " + arr.length);
+      document.writeln("Index " + "Value");
+      for (i = 0; i < arr.length; i++)
+      {
+        if (i < 10) 
+          spaces = 4;
+        else if (i < 100)
+          spaces = 3;
+        else
+          spaces = 2;
+        document.writeln(i + " ".repeat(spaces) + " " + arr[i]);
+      }
+      
+    }
+
+    //==================================================
+    // printArrayUsingForIn
+    //==================================================
+    function printArrayUsingForIn(arrName, arr)
+    {
+    
+      // Declare variables
+      var spaces;
+
+      // Loop to print array values
+      document.writeln("\nArray " + arrName);
+      document.writeln("Array size: " + arr.length);
+      document.writeln("Index " + "Value");
+      for (var value in arr)
+      {
+        if (value < 10) 
+          spaces = 4;
+        else if (value < 100)
+          spaces = 3;
+        else
+          spaces = 2;
+        document.writeln(value + " ".repeat(spaces) + " " + arr[value]);
+      }
+        
+    }
+
+    //==================================================
+    // runArrays
+    //==================================================
+    function runArrays()
+    {
+
+      // Declare variables
+      var SIZE = 6;
+      var arr1 = new Array(4);  // Declare array with four spots
+      var arr2 = new Array(SIZE);  // Declare array with SIZE spots
+      var arr3 = new Array();  // Declare array with no spots
+      var arr4 = new Array(0);  // Declare array with no spots
+      var arr5 = ['q', 'r', 's', 't'];  // Declare array with initializer list - good
+      var arr6 = new Array('w', 'x', 'y', 'z');  // Declare array with new operator and initializer list - bad
+      var c;
+      
+      // Randomize array values
+      document.writeln("<pre>");
+      randomizeArray(arr1, 10);
+      randomizeArray(arr2, 100);
+
+      // Print array values
+      document.writeln("Arrays");
+      printArray("arr1", arr1);
+      printArray("arr2", arr2);
+      printArray("arr3", arr3);
+      printArray("arr4", arr4);
+
+      // Grow array 1
+      printArray("arr1 before growth", arr1);
+      arr1.length = arr1.length * 2;
+      printArray("arr1 after growth", arr1);
+
+      // Shrink array 1
+      printArray("arr1 before shrinkage", arr1);
+      arr1.length = 2;
+      printArray("arr1 after shrinkage", arr1);
+
+      // Reference element beyond array size
+      printArray("arr1 before assigning value beyond array size", arr1);
+      arr1[arr1.length * 3] = 77;
+      printArray("arr1 after assigning value beyond array size", arr1);
+
+      // Push array value
+      printArrayUsingForIn("arr5 before push and using for-in", arr5);
+      arr5.push('A');
+      document.writeln("\nValue 'A' pushed to arr5.");
+      printArray("arr5 after push", arr5);
+
+      // Pop array value
+      printArrayUsingForIn("arr6 before pop and using for-in", arr6);
+      c = arr6.pop();
+      document.writeln("\nValue '" + c + "' popped from arr6.");
+      printArray("arr6 after pop", arr6);
+      
+      // Use splice to insert array values
+      arr5.splice(2, 0, "M", "N", "O"); 
+      printArray("arr5 after splice", arr5);
+      
+      // Use splice to remove array values
+      arr6.splice(1, 1); 
+      printArray("arr6 after splice", arr6);
+      
+      // Print joined arrays
+      document.writeln("\nJoined arrays");
+      document.writeln("arr1 joined: " + arr1.join());
+        // Join using default separator (,)
+      document.writeln("arr2 joined: " + arr2.join(","));
+        // Join using , separator
+      document.writeln("arr5 joined: " + arr5.join("|"));
+        // Join using | separator
+      document.writeln("arr6 joined: " + arr6.join(" ## "));
+        // Join using ' ## ' separator
+
+      document.writeln("</pre>");
+      
+    }
+    
+  </script>
+  <p><b>Arrays</b></p>
+  <button 
+    type="button" 
+    onclick="runArrays()"
+    style="font-size:14px">
+    Run arrays
+  </button>
+  
+  <hr>  
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- Array out-of-bounds -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+  "use strict";
+
+    //==================================================
+    // runArrayOutOfBounds
+    //==================================================
+    function runArrayOutOfBounds()
+    {
+
+      // Declare variables
+      var SIZE = 4;
+      var nums = [14, 17, 8, 19];
+      
+      // Loop to go beyond array bounds
+      document.writeln("<pre>");
+      document.writeln("Array size: " + nums.length);
+      for (var i = 0; i < (SIZE * 2); i++)
+        document.writeln(nums[i]);
+      document.writeln("</pre>");
+      
+    }
+    
+  </script>
+  <p><b>Array out-of-bounds</b></p>
+  <button 
+    type="button" 
+    onclick="runArrayOutOfBounds()"
+    style="font-size:14px">
+    Run array out-of-bounds
+  </button>
+  
+  <hr>  
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- Array Sorting -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // compareInts
+    //==================================================
+    function compareInts(numStr1, numStr2)
+    {
+    
+      // Declare variables
+      var num1;
+      var num2;
+      
+      // Attempt to convert strings to integers
+      num1 = parseInt(numStr1);
+      num2 = parseInt(numStr2);
+      if (isNaN(num1) || isNaN(num2))
+      {
+        document.writeln("Sorting error: invalid integer (numStr1=" + 
+          numStr1 + ", numStr2=" + numStr2 + ") in sort data.");
+        return -1;
+      }
+      else
+        return (num1 - num2);
+        
+    }
+
+    //==================================================
+    // printArrayInSort
+    //==================================================
+    function printArrayInSort(arrName, arr, objFlag)
+    {
+    
+      // Declare variables
+      var i;
+      var spaces;
+
+      // Loop to print array values
+      document.writeln("\nArray " + arrName);
+      document.writeln("Array size: " + arr.length);
+      document.writeln("Index " + "Value");
+      for (i = 0; i < arr.length; i++)
+      {
+        if (i < 10) 
+          spaces = 4;
+        else if (i < 100)
+          spaces = 3;
+        else
+          spaces = 2;
+        if (objFlag)
+          document.writeln(i + " ".repeat(spaces) + " " + arr[i].height);
+        else
+          document.writeln(i + " ".repeat(spaces) + " " + arr[i]);
+      }
+      
+    }
+
+    //==================================================
+    // runArraySorting
+    //==================================================
+    function runArraySorting()
+    {
+
+      // Declare array variables
+      var arrInts = [44, 91, 3, 78, 105, 12];
+      var arrStrs = ["Detroit", "Chicago", "Beijing", "Delhi", 
+        "Tokyo", "New York City"];
+           
+      // Print arrayInts before and after default sort
+      document.writeln("<pre>");
+      document.writeln("Array Sorting");
+      printArrayInSort("arrInts before default sort", arrInts, false);
+      arrInts.sort()
+      printArrayInSort("arrInts after default sort", arrInts, false);
+
+      // Print arrStrs before and after default sort
+      printArrayInSort("arrStrs before default sort", arrStrs, false);
+      arrStrs.sort()
+      printArrayInSort("arrStrs after default sort", arrStrs, false);
+
+      // Print arrayInts before and after integer sort
+      arrInts = [44, 91, 3, -78, 105, 12];
+      printArrayInSort("arrInts before integer sort", arrInts, false);
+      arrInts.sort(compareInts)
+      printArrayInSort("arrInts after integer sort", arrInts, false);
+
+      // Print arrayInts before and after integer sort with bad input
+      arrInts = [44, 91, 3, 78, "num", 12];
+      printArrayInSort("arrInts before integer sort with bad input", arrInts, false);
+      arrInts.sort(compareInts)
+      printArrayInSort("arrInts after integer sort with bad input", arrInts, false);
+
+      document.writeln("</pre>");
+      
+    }
+    
+  </script>
+  <p><b>Array Sorting</b></p>
+  <button 
+    type="button" 
+    onclick="runArraySorting()"
+    style="font-size:14px">
+    Run array sorting
+  </button>
+  
+  <hr>  
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- Array Searching -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    // Declare variables
+    var arr = [44, 91, 3, 78, 105, 12];
+
+    //==================================================
+    // searchArray
+    //==================================================
+    function searchArray()
+    {
+
+      // Declare variables
+      var str;
+      var key;
+      var index;
+
+      // Get key
+      str = document.getElementById('tKey').value; 
+      key = parseInt(str);
+      
+      // Test if key valid
+      document.getElementById('tArray').value = arr.join();
+      if (isNaN(key))
+        document.getElementById('tResult').value = "'" + str +
+          "' is an invalid number.";
+      else
+      {
+      
+        // Search for key in array
+        index = arr.indexOf(key);
+        if (index == -1)
+          document.getElementById('tResult').value = "Key '" + key +
+            "' NOT found in array.";
+        else
+          document.getElementById('tResult').value = "Key '" + key + 
+            "' found in array at spot " + index + ".";
+
+      }
+      
+    }
+    
+  </script>
+  <p><b>Array Searching</b></p>
+  <label>Array: </label><input type="text" id="tArray" readonly />
+  <br><br>
+  <label>Key: </label><input type="text" id="tKey" size="5"/>
+  <br><br>
+  <button 
+    type="button" 
+    onclick="searchArray()"
+    style="font-size:14px">
+    Search array
+  </button>
+  <br><br>
+  <label>Result: </label><input type="text" size="30" id="tResult"/>
+  
+  <hr>  
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- Multi-dimensional arrays -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // randomize2DArray
+    //==================================================
+    function randomize2DArray(arr, upperBound)
+    {
+    
+      // Declare variables
+      var i;
+      var j;
+    
+      // Loop to store random values in array
+      for (i = 0; i < arr.length; i++)
+        for (j = 0; j < arr[i].length; j++)
+          arr[i][j] = Math.floor(Math.random() * upperBound);
+    
+    }
+
+    //==================================================
+    // print2DArray
+    //==================================================
+    function print2DArray(arrName, arr)
+    {
+    
+      // Declare variables
+      var i;
+      var j;
+      var spaces;
+      var arr2;
+      var value;
+
+      // Loop to print array values
+      document.writeln("\nArray " + arrName);
+      document.writeln("Rows: " + arr.length + ", Columns: " + arr[0].length);
+      for (i = 0; i < arr.length; i++)
+      {
+        if (arr[i] == undefined)
+          document.write("  -row undefined");
+        else
+          for (j = 0; j < arr[i].length; j++)
+          {
+            value = arr[i][j];
+            if (value == undefined)
+              document.write("UNDEF");
+            else
+            {
+              if (value < 10) 
+                spaces = 4;
+              else if (value < 100)
+                spaces = 3;
+              else
+                spaces = 2;
+              document.write(" ".repeat(spaces) + " " + value);
+            }
+          }
+        document.writeln();
+      }
+      
+    }
+
+    //==================================================
+    // runMultiDimensionalArrays
+    //==================================================
+    function runMultiDimensionalArrays()
+    {
+
+      // Declare variables
+      var i;
+
+      // Declare 3x2 array
+      var arr1 = new Array(3);  // Declare array with three spots
+      arr1[0] = new Array(2);  // Declare array with two spots and place inside arr1
+      arr1[1] = new Array(2);  // Declare array with two spots and place inside arr1
+      arr1[2] = new Array(2);  // Declare array with two spots and place inside arr1
+
+      // Declare 2x3 array
+      var arr2 =
+        [
+          [11,  4, 12],
+          [3 , 12, 17]
+        ];  // Declare 2x3 array with initializer list
+
+      // Loop to create 8x4 array
+      var arr3 = new Array(8);
+      for (i = 0; i < 8; i++)
+        arr3[i] = new Array(4);
+      
+      // Randomize array values
+      document.writeln("<pre>");
+      randomize2DArray(arr1, 10);
+
+      // Print array values
+      document.writeln("Arrays");
+      print2DArray("arr1 (3x2)", arr1);
+      print2DArray("arr2 (2x3)", arr2);
+
+      // Change array 1 values
+      print2DArray("arr1 before changes", arr1);
+      arr1[0][0] = 22;
+      arr1[1][1] = 33;
+      print2DArray("arr1 after changes", arr1);
+
+      // Change array 2 values
+      print2DArray("arr2 before changes", arr2);
+      arr2[0][0] = 22;
+      arr2[1][1] = 33;
+      print2DArray("arr2 after changes", arr2);
+
+      // Grow array 1
+      print2DArray("arr1 before growth", arr1);
+      arr1.length = arr1.length * 2;
+      print2DArray("arr1 after growth", arr1);
+
+      // Shrink array 1
+      print2DArray("arr1 before shrinkage", arr1);
+      arr1.length = 2;
+      print2DArray("arr1 after shrinkage", arr1);
+
+      document.writeln("</pre>");
+      
+    }
+    
+  </script>
+  <p><b>Multi-dimensional Arrays</b></p>
+  <button 
+    type="button" 
+    onclick="runMultiDimensionalArrays()"
+    style="font-size:14px">
+    Run multi-dimensional arrays
+  </button>
+  
+  <hr>  
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- Global and local variables -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // Global variables
+    //==================================================
+
+    // Declare global variables
+    var num1;
+    var num2;
+
+    //==================================================
+    // function1
+    //   This function has access to global variables
+    // num1 and num2, and local variables num3 and num4.
+    //==================================================
+    function function1()
+    {
+
+      // Declare local variables
+      var num3;
+      var num4;
+
+      // Assign values
+      num1 = 10;
+      num2 = 20;
+      num3 = 30;
+      num4 = 40;
+
+      // Show values
+      document.writeln("<pre>");
+      document.writeln("Function 1");
+      document.writeln("num1 = " + num1);
+      document.writeln("num2 = " + num2);
+      document.writeln("num3 = " + num3);
+      document.writeln("num4 = " + num4);
+      document.writeln("</pre>");
+
+    }
+
+    //==================================================
+    // function2
+    //   This function has access to global variables 
+    // num1 and num2, and local variables num5 and num6.
+    //==================================================
+    function function2()
+    {
+
+      // Declare local variables
+      var num5;
+      var num6;
+
+      // Assign values
+      num1 = 101;
+      num2 = 202;
+      num5 = 303;
+      num6 = 404;
+
+      // Show values
+      document.writeln("<pre>");
+      document.writeln("Function 2");
+      document.writeln("num1 = " + num1);
+      document.writeln("num2 = " + num2);
+      document.writeln("num5 = " + num5);
+      document.writeln("num6 = " + num6);
+      document.writeln("</pre>");
+      
+      // Call other function
+      function1();
+    
+    }
+    
+  </script>
+  <p><b>Global and local variables</b></p>
+  <button 
+    type="button" 
+    onclick="function1()"
+    style="font-size:14px">
+    Run function 1
+  </button>
+  <button 
+    type="button" 
+    onclick="function2()"
+    style="font-size:14px">
+    Run function 2
+  </button>
+  
+  <hr>  
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- Open web page -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+
+    //==================================================
+    // runOpenWebPage
+    //==================================================
+    function runOpenWebPage()
+    {
+      //window.open("http://engineering.wayne.edu/cs/");
+      //alert("Open with no parameters: web page opened in own tab.")
+      //window.open("http://engineering.wayne.edu/cs/", "_blank");
+      //alert("Open with parameter '_blank': web page opened in own tab.")
+      //window.open("http://engineering.wayne.edu/cs/", "_parent");
+      //alert("Open with parameter '_parent': web page opened in current tab.")
+      window.open("http://engineering.wayne.edu/cs/", "_self");
+      alert("Open with parameter '_self': web page opened in current tab.")
+    }
+    
+  </script>
+  <p><b>Open web page</b></p>
+  <button 
+    type="button" 
+    onclick="runOpenWebPage()"
+    style="font-size:14px">
+    Run open web page
+  </button>
+  
+  <hr>
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- JavaScript storage -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runJavaScriptStorage
+    //==================================================
+    function runJavaScriptStorage()
+    {
+    
+      // Declare variables
+      var num1 = Math.floor(Math.random() * 100);
+      //var num2 = Math.floor(Math.random() * 200);
+    
+      // Add storage fields
+      localStorage.setItem("localVar", num1);  // Available across sessions
+      //sessionStorage.setItem("sessionVar", num2);  // Available only in this session
+
+      // Show storage field values
+      document.getElementById('tLocalValue').value = 
+        localStorage.getItem("localVar");
+      //document.getElementById('tSessionValue').value =
+        //sessionStorage.getItem("sessionVar");
+    
+      // Remove storage fields
+      //localStorage.removeItem("localVar");
+      //sessionStorage.removeItem("sessionVar");
+      
+    }
+    
+    //==================================================
+    // openJavaScriptStoragePage
+    //==================================================
+    function openJavaScriptStoragePage()
+    {
+      //open("JavaScriptStorage.html");  // Open web page in different tab
+      open("JavaScriptStorage.html", "_self");  // Open web page in same tab
+    }
+    
+  </script>
+  <p><b>JavaScript storage</b></p>
+  <label>Local storage value: </label><input type="text" id="tLocalValue" readonly />
+  <br><br>
+  <label>Session storage value: </label><input type="text" id="tSessionValue" readonly />
+  <br><br>
+  <button 
+    type="button" 
+    onclick="runJavaScriptStorage()"
+    style="font-size:14px">
+    Run window storage
+  </button>
+  <button 
+    type="button" 
+    onclick="openJavaScriptStoragePage()"
+    style="font-size:14px">
+    Open JavaScript Storage page
+  </button>
+  
+  <hr>  
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- Math fields and methods -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runMathFieldsAndMethods
+    //==================================================
+    function runMathFieldsAndMethods()
+    {
+
+      // Declare variables
+      var str;
+      var num;
+
+      // Show Math fields
+      document.writeln("<pre>");
+      document.writeln("Math fields");
+      document.writeln("Euler's number:          " + Math.E);
+      document.writeln("Natural logarithm of 2:  " + Math.LN2);
+      document.writeln("Natural logarithm of 10: " + Math.LN10);
+      document.writeln("Base-2 logarithm of E:   " + Math.LOG2E);
+      document.writeln("Base-10 logarithm of E:  " + Math.LOG10E);
+      document.writeln("PI:                      " + Math.PI);
+      document.writeln("Square root of 1/2:      " + Math.SQRT1_2);
+      document.writeln("Square root of 2:        " + Math.SQRT2);
+
+      // Prompt for and get number
+      str = prompt("Enter a real number:"); 
+      num = parseFloat(str);
+      
+      // Show Math methods
+      document.writeln("\nMath methods");
+      document.writeln("Absolute value:                  " + Math.abs(num));
+      document.writeln("Rounded up to nearest integer:   " + Math.ceil(num));
+      document.writeln("Rounded down to nearest integer: " + Math.floor(num));
+      document.writeln("Squared:                         " + Math.pow(num, 2));
+      document.writeln("Random number between 0 and 1:   " + Math.random());
+      document.writeln("Rounded to nearest integer:      " + Math.round(num));
+      document.writeln("Square root:                     " + Math.sqrt(num));
+      document.writeln("</pre>");
+    
+    }
+    
+  </script>
+  <p><b>Math fields and methods</b></p>
+  <button 
+    type="button" 
+    onclick="runMathFieldsAndMethods()"
+    style="font-size:14px">
+    Run Math fields and methods
+  </button>
+  
+  <hr>  
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- String methods -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runStringMethods
+    //==================================================
+    function runStringMethods()
+    {
+
+      // Declare variables
+      var str = "WSU is great!";
+      var i;
+      
+      // Loop through each string character
+      document.writeln("<pre>");
+      document.writeln("String:        " + str);
+      document.writeln("\nString characters");
+      document.writeln("Index   Char    Code");
+      for (i = 0; i < str.length; i++)
+        document.writeln(i + "       " + str.charAt(i) + "       " + 
+          str.charCodeAt(i));
+
+      // Show various string methods
+      document.writeln("\nString methods");
+      document.writeln("length:          " + str.length);
+      document.writeln("substring(1, 5): " + str.substring(1, 5)); 
+      document.writeln("indexOf('t'):    " + str.indexOf('t'));
+      document.writeln("toLowerCase():   " + str.toLowerCase());
+      document.writeln("toUpperCase():   " + str.toUpperCase());
+      document.writeln("big():           " + str.big());
+      document.writeln("blink():         " + str.blink());
+      document.writeln("bold():          " + str.bold());
+      document.writeln("fixed():         " + str.fixed(44));
+      document.writeln("fontcolor():     " + str.fontcolor("DarkBlue"));
+      document.writeln("fontsize():      " + str.fontsize(24));
+      document.writeln("italics():       " + str.italics());
+      document.writeln("link():          " + str.link());
+      document.writeln("strike():        " + str.strike());
+      document.writeln("sub():           " + str.sub());
+      document.writeln("sup():           " + str.sup());
+      document.writeln("</pre>");
+      
+    }
+    
+  </script>
+  <p><b>String methods</b></p>
+  <button 
+    type="button" 
+    onclick="runStringMethods()"
+    style="font-size:14px">
+    Run string methods
+  </button>
+  
+  <hr>  
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- Number fields -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runNumberFields
+    //==================================================
+    function runNumberFields()
+    {
+
+      // Declare variables
+      var str;
+      var num;
+
+      // Show Number fields
+      document.writeln("<pre>");
+      document.writeln("Number fields");
+      document.writeln("Number.MIN_VALUE:         " + Number.MIN_VALUE);
+      document.writeln("Number.MAX_VALUE:         " + Number.MAX_VALUE);
+      document.writeln("Number.NaN:               " + Number.NaN);
+      document.writeln("Number.NEGATIVE_INFINITY: " + Number.NEGATIVE_INFINITY);
+      document.writeln("Number.POSITIVE_INFINITY: " + Number.POSITIVE_INFINITY);
+
+      // Prompt for and get number
+      str = prompt("Enter a real number:"); 
+      num = parseFloat(str);
+      
+      // Show nNumber methods
+      document.writeln("\nNumber methods");
+      document.writeln("isFinite():    " + Number.isFinite(num));
+      document.writeln("isInteger():   " + Number.isInteger(num));
+      document.writeln("isNaN():       " + isNaN(num));
+      document.writeln("toFixed():     " + num.toFixed(3));  // Digits to right of decimal
+      document.writeln("toPrecision(): " + num.toPrecision(6));  // All digits
+      document.writeln("</pre>");
+    
+    }
+    
+  </script>
+  <p><b>Number fields</b></p>
+  <button 
+    type="button" 
+    onclick="runNumberFields()"
+    style="font-size:14px">
+    Run Number fields
+  </button>
+  
+  <hr>  
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- Date object -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runDateObject
+    //==================================================
+    function runDateObject()
+    {
+
+      // Declare variables
+      var d;
+
+      // Get and show current date and time
+      d = new Date();
+      document.writeln("<pre>");
+      document.writeln("Current date and time: " + d);
+
+      // Get and show dates in milliseconds
+      d = new Date(0);
+      document.writeln("Custom date 1 in milliseconds: " + d);
+      d = new Date(999999999999);
+      document.writeln("Custom date 2 in milliseconds: " + d);
+
+      // Set and show custom date
+      d = new Date(2017, 9, 30);
+      document.writeln("Custom date: " + d);
+
+      // Set and show custom date and time
+      d = new Date(2017, 3, 20, 12, 30, 30);
+      document.writeln("Custom date and time: " + d);
+      document.writeln("</pre>");
+    
+    }
+    
+  </script>
+  <p><b>Date object</b></p>
+  <button 
+    type="button" 
+    onclick="runDateObject()"
+    style="font-size:14px">
+    Run date object
+  </button>
+  
+  <hr>  
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- Window properties -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runWindowProperties
+    //==================================================
+    function runWindowProperties()
+    {
+
+      // Get and show window screen properties
+      document.writeln("<pre>");
+      document.writeln("Screen properties");
+      document.writeln("Screen width (pixels):  " + 
+        window.screen.width);
+      document.writeln("Screen height (pixels): " + 
+        window.screen.height);
+      document.writeln("Color depth (bits):     " + 
+        window.screen.colorDepth);
+      document.writeln("Pixel depth (bits):     " + 
+        window.screen.pixelDepth);
+
+      // Get and show window location properties
+      document.writeln();
+      document.writeln("Location properties");
+      document.writeln("Web page URL:      " + 
+        window.location.href);
+      document.writeln("Web page host:     " + 
+        window.location.hostname);
+      document.writeln("Web page path:     " + 
+        window.location.pathname);
+      document.writeln("Web page protocol: " + 
+        window.location.protocol);
+
+      // Get and show window navigator properties
+      document.writeln();
+      document.writeln("Navigator properties");
+      document.writeln("Browser name:      " + 
+        window.navigator.appName);
+      document.writeln("Browser code name: " + 
+        window.navigator.appCodeName);
+      document.writeln("Operating system:  " + 
+        window.navigator.platform);
+      document.writeln("Browser version:  " + 
+        window.navigator.appVersion);
+      document.writeln("</pre>");
+
+    }
+    
+  </script>
+  <p><b>Window properties</b></p>
+  <button 
+    type="button" 
+    onclick="runWindowProperties()"
+    style="font-size:14px">
+    Run window properties
+  </button>
+  
+  <hr>  
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- JavaScript-HTML connection for labels -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runPropertyInnerHTMLForLabels
+    //==================================================
+    function runPropertyInnerHTMLForLabels()
+    {
+      document.getElementById('lblCity2').innerHTML =
+        document.getElementById('lblCity1').innerHTML;
+    }
+    
+  </script>
+
+  <p><b>Labels using innerHTML</b></p>
+  <label><b>City 1: </b></label>
+  <label id="lblCity1"><b>Chicago</b></label>
+  <br>
+  <label><b>City 2: </b></label>
+  <label id="lblCity2">Detroit</label>
+  <br><br>
+
+  <button 
+    type="button" 
+    onclick="runPropertyInnerHTMLForLabels()"
+    style="font-size:14px">
+    Run property innerHTML
+  </button>
+  <hr>
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- JavaScript-HTML connection for text boxes -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runMethodGetElementByIdForTextBoxes
+    //==================================================
+    function runMethodGetElementByIdForTextBoxes()
+    {
+      document.getElementById('tCity2').value =
+        document.getElementById('tCity1').value;
+    }
+    
+  </script>
+
+  <p><b>Text boxes using getElementById</b></p>
+  <label><b>City 1: </b></label>
+  <input type="text" id="tCity1" value="Chicago"/>
+  <br>
+  <label><b>City 2: </b></label>
+  <input type="text" id="tCity2" value="Detroit"/>
+  <br><br>
+
+  <button 
+    type="button" 
+    onclick="runMethodGetElementByIdForTextBoxes()"
+    style="font-size:14px">
+    Run method getElementById for text boxes
+  </button>
+  <hr>
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- JavaScript-HTML connection for list box -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runMethodGetElementByIdForListBox
+    //==================================================
+    function runMethodGetElementByIdForListBox()
+    {
+      document.getElementById('tCityLB').value =
+        document.getElementById('lstCities').value;
+    }
+    
+  </script>
+
+  <p><b>List box using getElementById</b></p>
+  
+  <label><b>List box: </b></label>
+  <input id="lstCities" list="options">
+  <datalist id="options">
+    <option value="Chicago">
+    <option value="Detroit">
+    <option value="Windsor">
+  </datalist> 
+  <br>
+
+  <label><b>Selected city: </b></label>
+  <input type="text" id="tCityLB" readonly />
+  <br><br>
+
+  <button 
+    type="button" 
+    onclick="runMethodGetElementByIdForListBox()"
+    style="font-size:14px">
+    Run method getElementById for list box
+  </button>
+  <hr>  
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- JavaScript-HTML connection for combo box -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+    
+    //==================================================
+    // runMethodGetElementByIdForComboBox
+    //==================================================
+    function runMethodGetElementByIdForComboBox()
+    {
+      document.getElementById('tCityCB').value =
+        document.getElementById('cmbCities').value +
+        " (" + document.getElementById('cmbCities').selectedIndex + ")";
+    }
+    
+  </script>
+
+  <p><b>Combo box using getElementById</b></p>
+  
+  <label><b>Combo box: </b></label>
+  <select id="cmbCities" >
+    <option>Chicago</option>
+    <option>Detroit</option>
+    <option>Windsor</option>
+  </select> 
+  <br>
+
+  <label><b>Selected city: </b></label>
+  <input type="text" id="tCityCB" readonly />
+  <br><br>
+
+  <button 
+    type="button" 
+    onclick="runMethodGetElementByIdForComboBox()"
+    style="font-size:14px">
+    Run method getElementById for combo box
+  </button>
+  <hr>
+  
+  <!-- ----------------------------------------------------------- -->
+  <!-- JavaScript-HTML connection for check boxes -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runMethodGetElementByIdForCheckBoxes
+    //==================================================
+    function runMethodGetElementByIdForCheckBoxes()
+    {
+      document.getElementById('tSalt').value =
+        document.getElementById('cbSalt').checked;
+      document.getElementById('tSugar').value =
+        document.getElementById('cbSugar').checked;
+      document.getElementById('tPepper').value =
+        document.getElementById('cbPepper').checked;
+    }
+    
+  </script>
+    
+  <p><b>Check boxes using getElementById</b></p>
+
+  <!-- Field set -->
+  <fieldset>
+    <legend>Check boxes</legend>
+
+    <!-- Check boxes -->
+    <input type="checkbox" id="cbSalt">Salt<br>
+    <input type="checkbox" id="cbSugar">Sugar<br>
+    <input type="checkbox" id="cbPepper">Pepper<br>
+
+  </fieldset>
+
+  <label><b>Selected items: </b></label>
+  <br>
+  <input type="text" id="tSalt" readonly />
+  <br>
+  <input type="text" id="tSugar" readonly />
+  <br>
+  <input type="text" id="tPepper" readonly />
+  <br><br>
+
+  <button 
+    type="button" 
+    onclick="runMethodGetElementByIdForCheckBoxes()"
+    style="font-size:14px">
+    Run method getElementById for check boxes
+  </button>
+  <hr>
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- JavaScript-HTML connection for radio buttons -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+    
+    //==================================================
+    // runMethodGetElementByIdForRadioButtons
+    //==================================================
+    function runMethodGetElementByIdForRadioButtons()
+    {
+      var selection;
+      if (document.getElementById('rbSpring').checked)
+        selection = "Spring";
+      else if (document.getElementById('rbSummer').checked)
+        selection = "Summer";
+      else if (document.getElementById('rbFall').checked)
+        selection = "Fall";
+      else if (document.getElementById('rbWinter').checked)
+        selection = "Winter";
+      document.getElementById('tSeason').value = selection;
+    }
+    
+  </script>
+    
+  <p><b>Radio buttons using getElementById</b></p>
+
+  <!-- Field set -->
+  <fieldset>
+    <legend>Radio buttons</legend>
+
+    <!-- Radio buttons -->
+    <input type="radio" name="rbGroup" id="rbSpring"> Spring<br>
+    <input type="radio" name="rbGroup" id="rbSummer"> Summer<br>
+    <input type="radio" name="rbGroup" id="rbFall"> Fall<br>
+    <input type="radio" name="rbGroup" id="rbWinter"> Winter<br>
+
+  </fieldset>
+
+  <label><b>Selected season: </b></label>
+  <input type="text" id="tSeason" readonly />
+  <br><br>
+
+  <button 
+    type="button" 
+    onclick="runMethodGetElementByIdForRadioButtons()"
+    style="font-size:14px">
+    Run method getElementById for radio buttons
+  </button>
+  <hr>
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- JavaScript-HTML connection for styles -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+    
+    //==================================================
+    // runMethodGetElementByIdForStyles
+    //==================================================
+    function runMethodGetElementByIdForStyles()
+    {
+      document.getElementById("lblCollege").style.fontSize = 
+        document.getElementById("inpFontSize").value + "px";
+      document.getElementById("lblCollege").style.color = 
+        document.getElementById("inpColor").value;
+    }
+    
+  </script>
+  
+  <p><b>Styles using getElementById</b></p>
+      
+  <label>Font size: </label>
+  <input type="number" id="inpFontSize" 
+    min="20" step="4" max="80" value="28">
+        
+  <label>Color: </label>
+  <input type="color" id="inpColor">
+  &nbsp;&nbsp;
+
+  <label><b>Best university: </b></label>
+  <label id="lblCollege"><b>WSU</b></label>
+  <br><br>
+
+  <button 
+    type="button" 
+    onclick="runMethodGetElementByIdForStyles()"
+    style="font-size:14px">
+    Run method getElementById for styles
+  </button>
+  <hr>
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- JavaScript-HTML connection not ready -->
+  <!-- ----------------------------------------------------------- -->
+
+  <!-- Test if HTML element 'tInput' ready -->
+  <script type="text/javascript">
+    "use strict";
+    
+    // Declare variables
+    //var lblIn = document.getElementById('lblInput');
+    
+    // Test if tag ready
+    //if (lblIn == null)
+    //  alert("Error: HTML tag 'lblInput' is NOT ready for use.")
+    //else
+    //  alert("HTML tag 'lblInput' is ready for use.")
+    
+  </script>
+  
+  <p><b>Test if HTML tag ready</b></p>
+  
+  <label id="lblInput"><b>We're going to Disney World!</b></label>
+  <br><br>
+  
+  <!-- Test if HTML element 'tInput' ready -->
+  <script type="text/javascript">
+    "use strict";
+    
+    // Declare variables
+    //var lblIn = document.getElementById('lblInput');
+    
+    // Test if tag ready
+    //if (lblIn == null)
+    //  alert("Error: HTML tag 'lblInput' is NOT ready for use.")
+    //else
+    //  alert("HTML tag 'lblInput' is ready for use.")
+    
+  </script>
+  
+  <hr>
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- Document object -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runDocumentObject
+    //==================================================
+    function runDocumentObject()
+    {
+        
+      // Declare variables and get counts before web page is overwritten
+      var formCount = document.forms.length;
+      var imageCount = document.images.length;
+      var linkCount = document.links.length;
+      var bodyCount = document.getElementsByTagName('body').length;
+      var labelCount = document.getElementsByTagName('label').length;
+      var inputCount = document.getElementsByTagName('input').length;
+      var buttonCount = document.getElementsByTagName('button').length;
+      var scriptCount = document.getElementsByTagName('script').length;
+      
+      // Show document fields
+      document.writeln("<pre>");
+      document.writeln("Document fields");
+      document.writeln("document.doctype:        " + 
+        document.doctype);
+      document.writeln("document.documentMode:   " + 
+        document.documentMode);
+      document.writeln("document.implementation: " + 
+        document.implementation);
+      document.writeln("document.inputEncoding:  " + 
+        document.inputEncoding);
+      document.writeln("document.lastModified:   " + 
+        document.lastModified);
+      document.writeln("document.URL:            " + 
+        document.URL);
+
+      // Show DOM collection counts
+      document.writeln("\nDOM collection counts");
+      document.writeln("document.forms:               " + 
+        formCount);
+      document.writeln("document.images:              " + 
+        imageCount);
+      document.writeln("document.links:               " + 
+        linkCount);
+      document.writeln("getElementsByTagName, body:   " + 
+        bodyCount);
+      document.writeln("getElementsByTagName, label:  " + 
+        labelCount);
+      document.writeln("getElementsByTagName, input:  " + 
+        inputCount);
+      document.writeln("getElementsByTagName, button: " + 
+        buttonCount);
+      document.writeln("getElementsByTagName, script: " + 
+        scriptCount);
+      document.writeln("</pre>");
+
+    }
+    
+  </script>
+  <p><b>Document object</b></p>
+
+  <form 
+    method="get" 
+    enctype="application/x-www-form-urlencoded"
+    action="http://www.tipjar.com/cgi-bin/test"     
+    >
+    <button 
+      type="button" 
+      onclick="runDocumentObject()"
+      style="font-size:14px">
+      Run document object
+    </button>
+    <br><br>
+    <a href="http://www.detroitnews.com/">Detroit News</a>
+  </form>
+  
+  <hr>  
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- DOM tree -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+        
+    // Declare global variables
+    var dt = "";
+
+    //==================================================
+    // runDOMtree
+    //==================================================
+    function runDOMtree()
+    {
+      dt = "";
+      traverseDOMtree(document, 0);
+      document.getElementById('pDOMTree').innerHTML = dt.substring(14);
+    }
+
+    //==================================================
+    // traverseDOMtree
+    // Node types
+    // 1 – tag node
+    // 2 - attribute node
+    // 3 – text node
+    // 8 – comment node
+    //==================================================
+    function traverseDOMtree(current, depth)
+    {
+      var children = current.childNodes;
+      var leader = "";
+      for (var i = 1; i <= (depth * 2); i++)
+        leader = leader + ".";
+      
+      if (children != null)
+      {
+        for (var i = 0; i < children.length; i++) 
+        {
+        
+          // Test if node not text node
+          if (children[i].nodeType != 3)
+          {
+            dt = dt + "<br>" + leader + depth + "-" + 
+              children[i].nodeName;
+          }
+          else
+          {
+          
+            // Test if text node value empty
+            // If text node value starts with line feed, its empty
+            var str = children[i].nodeValue;
+            if (str.charCodeAt(0) != 10)  
+              dt = dt + "<br>" + leader + 
+                "&nbsp;&nbsp;text:&nbsp;" + str;
+
+          }
+          
+          // Loop to list attributes
+          var attrs = children[i].attributes;
+          if (attrs != null)
+            for (var j = 0; j < attrs.length; j++)
+              dt = dt + "<br>" + leader + 
+                "&nbsp;&nbsp;attribute:&nbsp;" + 
+                attrs[j].nodeName + "=" + attrs[j].nodeValue;
+
+          // Traverse current node
+          traverseDOMtree(children[i], depth + 1);
+          
+        }        
+      }      
+    }
+    
+  </script>
+  
+  <!-- List nodes in DOM tree -->
+  <p><b>DOM tree</b></p>
+
+  <button 
+    type="button" 
+    onclick="runDOMtree()"
+    style="font-size:14px">
+    Build DOM tree
+  </button>
+  <br> 
+  
+  <button 
+    type="button" 
+    onclick="document.getElementById('pDOMTree').innerHTML = 'DOM Tree'"
+    style="font-size:14px">
+    Clear DOM tree
+  </button>
+  <br> 
+  
+  <p id="pDOMTree" style="background-color:LemonChiffon;font-size:14px">
+    DOM Tree
+  </p>
+  
+  <hr>
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- Unordered list DOM add, change, delete -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // Global variables
+    //==================================================
+    var u;
+    
+    //==================================================
+    // runAddNodesUnorderedList
+    //==================================================
+    function runAddNodesUnorderedList()
+    {
+    
+      // Declare variables
+      var div;
+      var ul;
+      var li;
+      var tx;
+      
+      // Create list and loop to add items
+      ul = document.createElement("ul");
+      ul.setAttribute("id", "ulFrame");
+      for (var i = 1; i <= 3; i++) 
+      {
+      
+        // Create item and add to list
+        li = document.createElement("li");
+        tx = document.createTextNode(i + "-" + Math.floor(Math.random() * 100));
+        li.appendChild(tx);                                
+        ul.appendChild(li);
+        
+      }
+      
+      // Add list to div
+      div = document.getElementById("divFrame");
+      div.appendChild(ul);
+      u = 3;
+      
+      // Set label
+      lblIDUnorderedList.innerHTML = "Unordered list of random numbers";
+
+    }
+
+    //==================================================
+    // runChangeNodesUnorderedList
+    //==================================================
+    function runChangeNodesUnorderedList()
+    {
+    
+      // Declare variables
+      var ul;
+      var li;
+      var j;
+      
+      // Get items
+      ul = document.getElementById("ulFrame");
+      var children = ul.childNodes;
+      if (children != null)
+      {
+      
+        // Loop to change items
+        for (var i = 0; i < children.length; i++) 
+        {
+          u = u + 1;
+          children[i].innerHTML = u + "-" + Math.floor(Math.random() * 100);
+        }
+        
+      }
+      
+      // Set label
+      lblIDUnorderedList.innerHTML = "Unordered list of new random numbers";
+
+    }
+
+    //==================================================
+    // runClearNodesUnorderedList
+    //==================================================
+    function runClearNodesUnorderedList()
+    {
+    
+      // Declare variables
+      var div;
+
+      // Loop to remove child nodes
+      div = document.getElementById("divFrame");
+      while (div.hasChildNodes())
+        div.removeChild(div.firstChild);
+      
+      // Set label
+      lblIDUnorderedList.innerHTML = "(empty div)";
+
+    }
+    
+  </script>
+  
+  <!-- Add, change, and delete DOM nodes -->
+  <p><b>Unordered list DOM add, change, delete</b></p>
+
+  <button 
+    type="button" 
+    onclick="runAddNodesUnorderedList()"
+    style="font-size:14px">
+    Add nodes
+  </button>
+  <br>
+
+  <button 
+    type="button" 
+    onclick="runChangeNodesUnorderedList()"
+    style="font-size:14px">
+    Change nodes
+  </button>
+  <br>
+
+  <button 
+    type="button" 
+    onclick="runClearNodesUnorderedList()"
+    style="font-size:14px">
+    Clear nodes
+  </button>
+  <br><br>
+  
+  <label id="lblIDUnorderedList" style="font-size:16px">(empty div)</label>
+  <div id="divFrame" style="background-color:PeachPuff;font-size:14px">
+  </div>
+  
+  <hr>
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- Table rows DOM add, change, delete -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // Global variables
+    //==================================================
+    var u;
+    
+    //==================================================
+    // runAddNodesTableRows
+    //==================================================
+    function runAddNodesTableRows()
+    {
+    
+      // Declare variables
+      var bdy;
+      var tr;
+      var td;
+      var tx;
+
+      // Get handle to tbody
+      bdy = document.getElementById("tblBody");
+      
+      // Loop to create rows
+      for (var i = 1; i <= 3; i++)
+      {
+      
+          // Get handle to row
+          tr = document.createElement("tr");
+          
+          // Create first column node
+          td = document.createElement("td");
+          tx = document.createTextNode(Math.floor(Math.random() * 100));
+          td.appendChild(tx);                                
+          tr.appendChild(td);  
+          
+          // Create second column node
+          td = document.createElement("td");
+          tx = document.createTextNode(Math.floor(Math.random() * 100));
+          td.appendChild(tx);                                
+          tr.appendChild(td);  
+
+          // Attach row to body
+          bdy.appendChild(tr);    
+      
+      } 
+    
+      // Set label
+      lblIDTableRows.innerHTML = "Table with rows of random numbers";
+
+    }
+
+    //==================================================
+    // runClearNodesTableRows
+    //==================================================
+    function runClearNodesTableRows()
+    {
+    
+      // Declare variables
+      var bdy;
+
+      // Loop to remove child nodes
+      bdy = document.getElementById("tblBody");
+      while (bdy.hasChildNodes())
+        bdy.removeChild(bdy.firstChild);
+      
+      // Set label
+      lblIDTableRows.innerHTML = "(empty table)";
+
+    }
+    
+  </script>
+  
+  <!-- Add, change, and delete DOM nodes -->
+  <p><b>Table rows DOM add, change, delete</b></p>
+
+  <button 
+    type="button" 
+    onclick="runAddNodesTableRows()"
+    style="font-size:14px">
+    Add nodes
+  </button>
+  <br>
+
+  <button 
+    type="button" 
+    onclick="runClearNodesTableRows()"
+    style="font-size:14px">
+    Clear nodes
+  </button>
+  <br><br>
+  
+  <label id="lblIDTableRows" style="font-size:16px">(empty table)</label>
+ 
+  <table style="border:2px; width:100%">
+    
+    <!-- Column specs -->
+    <colgroup>
+      <col width="50%" style="background-color:gold">
+      <col width="50%" style="background-color:lightcyan">
+    </colgroup>
+    
+    <!-- Rows and columns -->
+    <tbody id="tblBody">
+    <tbody>
+
+  </table>
+  
+  <hr>
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- Events -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    // Declare variables
+    var count = 0;
+    
+    //==================================================
+    // textBoxType
+    //==================================================
+    function textBoxType(n)
+    {
+      updateStatus("Key pressed in text box " + n + ".");
+    }
+
+    //==================================================
+    // textBoxChanged
+    //==================================================
+    function textBoxChanged(n)
+    {
+      updateStatus("Text box " + n + " changed.");
+    }
+
+    //==================================================
+    // textBoxEntered
+    //==================================================
+    function textBoxEntered(n)
+    {
+      updateStatus("Focus " + n + " entered.");
+    }
+
+    //==================================================
+    // textBoxExited
+    //==================================================
+    function textBoxExited(n)
+    {
+      updateStatus("Focus " + n + " exited.");
+    }
+
+    //==================================================
+    // imageEntered
+    //==================================================
+    function imageEntered(ev)
+    {
+      updateStatus("Image entered at (" + ev.screenX + ", " + ev.screenY + ").");
+    }
+
+    //==================================================
+    // imageExited
+    //==================================================
+    function imageExited()
+    {
+      updateStatus("Image exited.");
+    }
+
+    //==================================================
+    // imageClicked
+    //==================================================
+    function imageClicked()
+    {
+      updateStatus("Image clicked.");
+    }
+
+    //==================================================
+    // imageDoubleClicked
+    //==================================================
+    function imageDoubleClicked()
+    {
+      updateStatus("Image double clicked.");
+    }
+
+    //==================================================
+    // imageWheeled
+    //==================================================
+    function imageWheeled(ev)
+    {
+      updateStatus("Mouse wheeled on image.");
+      ev.cancelBubble = true;
+    }
+
+    //==================================================
+    // updateStatus
+    //==================================================
+    function updateStatus(message)
+    {
+      count = count + 1;
+      document.getElementById('taStatus').value = count + ": " + 
+        message + (count == 1 ? "" : "\n") + 
+        document.getElementById('taStatus').value;
+    }
+    
+  </script>
+  <p id="pEvents"><b>Events</b></p>
+  
+  <b>onkeypress and onchange: </b>
+  &nbsp;&nbsp;
+  <label>Text 1:</label>
+    <input 
+      type="text" 
+      onkeypress="textBoxType(1)" 
+      onchange="textBoxChanged(1)"
+      />
+  &nbsp;&nbsp;
+  <label>Text 2:</label>
+    <input 
+      type="text" 
+      onkeypress="textBoxType(2)" 
+      onchange="textBoxChanged(2)" />
+  <br><br>
+  
+  <b>onfocus and onblur: </b>
+  &nbsp;&nbsp;
+  <label>Focus 1:</label>
+    <input
+      type="text"
+      onfocus="textBoxEntered(1)"
+      onblur="textBoxExited(1)" />
+  &nbsp;&nbsp;
+  <label>Focus 2:</label>
+    <input
+      type="text" 
+      onfocus="textBoxEntered(2)" 
+      onblur="textBoxExited(2)" />
+  <br><br>
+
+  <b>onmouseover, onmouseout, onclick, doubleclick, and onwheel: </b>
+  &nbsp;&nbsp;
+  <img 
+    src="Bay.jpg" 
+    alt="Bay evaporated!" 
+    width="128" height="100" 
+    onmouseover="imageEntered(event)"  
+    onmouseout="imageExited()"
+    onclick="imageClicked()"  
+    ondblclick="imageDoubleClicked()"
+    onwheel="imageWheeled(event)"
+    />
+  <br><br>
+
+  <b>Status: </b>
+  <textarea id="taStatus" rows="6" cols="60" readonly ></textarea>
+  <br>
+
+  <hr>  
+    
+  <!--================================================================
+  // Audio tag
+  //===============================================================-->
+  <script type="text/javascript">
+    "use strict";
+
+  //==================================================
+  // playAudioClip
+  //==================================================
+  function playAudioClip()
+  {
+
+    // Declare variables
+    var audioClip;
+
+    // Connect to audio clip
+    audioClip = document.getElementById("audNote2");
+    
+    // Play audio clip
+    audioClip.play();
+    
+  }
+    
+  </script>
+
+  <!-- Audio with controls -->
+  <p><b>Audio (Note1.wav) with controls</b></p>
+  <audio preload="auto" controls>
+    <source src="Note1.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+  <br><br>
+
+  <!-- Audio triggered by button -->
+  <audio id="audNote2" preload="auto">
+    <source src="Note2.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Audio triggered by button -->
+  <p><b>Audio (Note2.wav) triggered by button</b></p>
+  <button 
+    type="button" 
+    onclick="playAudioClip()"
+    style="font-size:14px">
+    Run audio
+  </button>
+  
+  <hr>  
+    
+  <!--================================================================
+  // Video tag
+  //===============================================================-->
+  <script type="text/javascript">
+    "use strict";
+
+  //==================================================
+  // playVideoClip
+  //==================================================
+  function playVideoClip()
+  {
+
+    // Declare variables
+    var videoClip;
+
+    // Connect to audio clip
+    videoClip = document.getElementById("vidClip2");
+    
+    // Play audio clip
+    videoClip.play();
+    
+  }
+    
+  </script>
+
+  <!-- Video with controls -->
+  <p><b>Video (Clip1.mp4) with controls</b></p>
+  <video width="200" height="100" controls>
+    <source src="Clip1.mp4" type="video/mp4">
+    Your browser does not support the video element.
+  </video>
+  <br><br>
+
+  <!-- Video triggered by button -->
+  <video id="vidClip2" width="200" height="100">
+    <source src="Clip1.mp4" type="video/mp4">
+    Your browser does not support the video element.
+  </video>
+
+  <!-- Audio triggered by button -->
+  <p><b>Video (Clip1.mp4) triggered by button</b></p>
+  <button 
+    type="button" 
+    onclick="playVideoClip()"
+    style="font-size:14px">
+    Run video
+  </button>
+  
+  <hr>  
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- JSON -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runJSON
+    //==================================================
+    function runJSON()
+    {
+
+      // Declare variables
+      var text = '{"city":"Boulder","state":"Colorado","zipCode":"80301"}';
+      var obj = JSON.parse(text);
+
+      document.writeln("<pre>");
+      document.writeln("JSON");
+      document.writeln("Text:     " + (text));
+      document.writeln("City:     " + (obj.city));
+      document.writeln("State:    " + (obj.state));
+      document.writeln("Zip code: " + (obj.zipCode));
+      document.writeln("</pre>");
+    
+    }
+    
+  </script>
+  <p><b>JSON</b></p>
+  <button 
+    type="button" 
+    onclick="runJSON()"
+    style="font-size:14px">
+    Run JSON
+  </button>
+  
+  <hr>  
+
+</body>
+  
+</html>

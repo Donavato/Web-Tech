@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- HEADER -->
+    <head>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    </head>
+    <!-- BODY -->
+    <body>
+        <h1 style="text-align: center">I.T Admin Login</h1>
+        <hr>
+        <form>
+            <label style="font-family: Orbitron; color: #bcbcbc; margin-left: 10%">Password: &nbsp;&nbsp;&nbsp;</label>
+
+            <input  name="adminBox" id="admin_password" type="password">
+            <br><br>
+            <button type="button" onclick="savePass()">Enter</button>
+
+            <button type="button" onclick="displayPass()">Show</button>
+            <br><br>
+            <input type="text" id="showPass" readonly>
+        </form>
+        <script type="text/javascript">
+            var pass = document.getElementById("admin_password");
+
+            function savePass() {
+                localStorage.setItem("adminBox", pass.value);
+                document.getElementById("showPass").innerHTML = localStorage.getItem("adminBox");
+
+            }
+            function displayPass(){
+                document.getElementById("showPass").innerHTML = localStorage.getItem("adminBox");
+
+            }
+
+        </script>
+    </body>
+
+</html>

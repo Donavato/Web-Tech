@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<!--==================================================================
+//
+// Title: JavaScript Storage
+// Description:
+//   This web page demonstrates JavaScript storage.
+// 
+//=================================================================-->
+
+<head>
+
+	<title>JavaScript Storage</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="Dan Ouellette"/>
+  <meta name="description" content="JavaScript Storage"/>
+  <meta http-equiv="Expires" content="-1">
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // decToHex
+    //==================================================
+    function decToHex(decNumber)
+    {
+      var hexString;
+      hexString = Number(decNumber).toString(16);
+      if (hexString.length == 1)
+      {
+        hexString = '0' + hexString;
+      }
+      return hexString;
+    }
+
+    //==================================================
+    // randomizeBackgroundColor
+    //==================================================
+    function randomizeBackgroundColor()
+    {
+
+      // Declare variables
+      var redCode;
+      var greenCode;
+      var blueCode;
+      var colorString;
+
+      // Randomize background color
+      redCode = Math.floor(Math.random() * 56) + 200;
+      greenCode = Math.floor(Math.random() * 56) + 200;
+      blueCode = Math.floor(Math.random() * 56) + 200;
+      colorString = '#' + decToHex(redCode) + decToHex(greenCode) + 
+        decToHex(blueCode);
+      document.getElementById('bPage').style.backgroundColor = 
+        colorString;
+      updateStatus("Web page ready.");
+
+    }
+    
+  </script>
+      
+</head>
+
+<body id="bPage" onload="randomizeBackgroundColor()">
+    
+  <!-- ----------------------------------------------------------- -->
+  <!-- window storage -->
+  <!-- ----------------------------------------------------------- -->
+  <script type="text/javascript">
+    "use strict";
+
+    //==================================================
+    // runJavaScriptStorage
+    //==================================================
+    function runJavaScriptStorage()
+    {
+    
+      // Declare variables
+      var num1 = localStorage.getItem("localVar");  // Available across sessions
+      //var num2 = sessionStorage.getItem("sessionVar");  // Available only in this session
+
+      // Show storage field values
+      document.getElementById('tLocalValue').value = num1;
+      //document.getElementById('tSessionValue').value = num2;
+      
+    }
+    
+    //==================================================
+    // openJavaScriptStatementsPage
+    //==================================================
+    function openJavaScriptStatementsPage()
+    {
+      //open("JavaScriptStatements.html");  // Open web page in different tab
+      open("JavaScriptStatements.html", "_self");  // Open web page in same tab
+    }
+    
+  </script>
+  <p><b>JavaScript storage</b></p>
+  <label>Local storage value: </label><input type="text" id="tLocalValue" readonly />
+  <br><br>
+  <label>Session storage value: </label><input type="text" id="tSessionValue" readonly />
+  <br><br>
+  <button 
+    type="button" 
+    onclick="runJavaScriptStorage()"
+    style="font-size:14px">
+    Run window storage
+  </button>
+  
+  <hr>  
+
+</body>
+  
+</html>
