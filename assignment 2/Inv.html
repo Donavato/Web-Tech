@@ -48,7 +48,7 @@
                     <input type="radio" name="Order" id="subtract">Sold<br>
                     <br><br>
                     <label>Count:</label><br>
-                    <input style="width: 50px" id="count" type="number">
+                    <input style="width: 50px" id="count" type="number" min="0">
             </form>
         </fieldset>
         <br><br>
@@ -62,7 +62,7 @@
                 return [
                     [10, 25,0],
                     [5, 40, 0],
-                    [6, 50, 0]
+                    [7, 50, 0]
                 ]  
             }
             var arr = runArray();
@@ -73,18 +73,34 @@
                 if(document.getElementById("add").checked){
                     if(selected.value == "PC_Repair"){
                         arr[0][0] = arr[0][0] + +x;
-                        //arr[0][0] += +x;
                         document.getElementById("newAmount").innerHTML =  arr[0][0];
-                        console.log(arr[0][0]);
-                        console.log("x");
+                    }
+                    else if(selected.value == "Soft_Repair"){
+                        arr[1][0] = arr[1][0] + +x;
+                        document.getElementById("newAmount").innerHTML =  arr[1][0];
+                    }
+                    else if(selected.value == "Home_Support"){
+                        arr[2][0] = arr[2][0] + +x;
+                        document.getElementById("newAmount").innerHTML =  arr[2][0];
                     }
                 }
                 else if(document.getElementById("subtract").checked){
-                    alert("Removing amount");
+                    if(selected.value == "PC_Repair"){
+                        arr[0][0] = arr[0][0] - +x;
+                        document.getElementById("newAmount").innerHTML =  arr[0][0];
+                    }
+                    else if(selected.value == "Soft_Repair"){
+                        arr[1][0] = arr[1][0] - +x;
+                        document.getElementById("newAmount").innerHTML =  arr[1][0];
+                    }
+                    else if(selected.value == "Home_Support"){
+                        arr[2][0] = arr[2][0] - +x;
+                        document.getElementById("newAmount").innerHTML =  arr[2][0];
+                    }
                 }
                 else{
-                    alert("doing nothing");
-                }
+                    alert("You have not selected a product to edit!");
+                }   
             }
             
             
