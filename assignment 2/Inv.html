@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- HEADER -->
+    <head>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    </head>
+    <!-- BODY -->
+    <body onload="runArray()">
+        <div id="blackBox">
+            <ul id="nav">
+                <li><a href="Home.html"><h2 style="font-size: 10px; font-family: Orbitron">Home</h2></a></li>
+                <li><a href="Services.html"><h2 style="font-size: 10px; font-family: Orbitron">Services</h2></a></li>
+                <li><a href="Rewards.html"><h2 style="font-size: 10px; font-family: Orbitron">Rewards</h2></a></li>
+                <li><a href="Login.html"><h2 style="font-size: 10px; font-family: Orbitron">Login</h2></a></li>
+            </ul>
+        </div>
+        <h1 style="text-align: center">Inventory Manager</h1>
+        <hr>
+        <form style="font-family: Orbitron; color: #bcbcbc; margin-left: 10%">
+            <label>Product:  &nbsp;&nbsp;&nbsp;</label>
+
+
+            <select id="Product" name="selectProduct">
+                <option value="Empty" selected>---------</option>
+                <option value="PC_Repair" id="PCR">Hardware Repair</option>
+                <option value="Soft_Repair" id="SR">Software Cleanup</option>
+                <option value="Home_Support" id="HS">Home Support</option>
+            </select>
+            <br><br>
+            <button type="button" onclick="choice()">Show Info</button>
+            <br><br>
+            <label>Count:</label>
+            <br>
+            <textarea id="demo" style="align-items:center"></textarea> <br><br>
+            <label>Cost ($):</label>
+            <br>
+            <textarea id="demo1" style="align-items:center"></textarea> <br><br>
+            <label>Value ($):</label>
+            <br>
+            <textarea id="demo2" style="align-items:center"></textarea> <br><br>
+        </form>
+        <br>
+        <script type="text/javascript">
+            function runArray(){    
+                return [
+                
+                    [10, 25, 250],
+                    [5, 40, 200],
+                    [6, 50, 255]
+                ]  
+            }
+            var arr = runArray();
+            var selected = document.getElementById("Product");
+            //var selectedValue = selected.options[selected.selectedIndex].value;
+
+            function choice(){ 
+                if(selected.value == "PC_Repair"){       
+                    document.getElementById("demo").value = arr[0][0];
+                    document.getElementById("demo1").value = arr[0][1];
+                    document.getElementById("demo2").value = arr[0][2];
+                }
+                else if(selected.value == "Soft_Repair"){       
+                    document.getElementById("demo").value = arr[1][0];
+                    document.getElementById("demo1").value = arr[1][1];
+                    document.getElementById("demo2").value = arr[1][2];
+                }
+                else if(selected.value == "Home_Support"){       
+                    document.getElementById("demo").value = arr[2][0];
+                    document.getElementById("demo1").value = arr[2][1];
+                    document.getElementById("demo2").value = arr[2][2];
+                }
+            }
+            
+        </script>
+    </body>
+
+</html>
