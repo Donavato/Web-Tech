@@ -17,10 +17,10 @@
         </div>
         <h1 style="text-align: center">Inventory Manager</h1>
         <hr>
-        <form style="font-family: Orbitron; color: #bcbcbc; margin-left: 10%">
+        <form id="form1" style="font-family: Orbitron; color: #bcbcbc; margin-left: 10%">
             <label>Product:  &nbsp;&nbsp;&nbsp;</label>
-
-
+            <br>
+            <!-- COMBO BOX -->
             <select id="Product" name="selectProduct">
                 <option value="Empty" selected>---------</option>
                 <option value="PC_Repair" id="PCR">Hardware Repair</option>
@@ -32,7 +32,7 @@
             <br><br>
             <label>Count:</label>
             <br>
-            <textarea id="demo" style="align-items:center"></textarea> <br><br>
+            <textarea id="demo" style="align-items:center" onchange="setTwoNumberDecimal"></textarea> <br><br>
             <label>Cost ($):</label>
             <br>
             <textarea id="demo1" style="align-items:center"></textarea> <br><br>
@@ -41,6 +41,7 @@
             <textarea id="demo2" style="align-items:center"></textarea> <br><br>
         </form>
         <br>
+        <!-- RADIO BUTTONS -->
         <fieldset style="width:400px">
             <legend>Inventory Transaction </legend>
             <form id="OrderUP">
@@ -52,8 +53,21 @@
             </form>
         </fieldset>
         <br><br>
-        <button type="submit" style="margin-left: 10%"onclick="Order_Update()">Update</button>
-        <textarea id="newAmount"></textarea>
+        <button type="submit" style="margin-left: 10%"onclick="Order_Update()">Update</button> &nbsp;&nbsp;&nbsp;
+        <button type="submit" onclick="reset()">Reset</button>
+        <br><br>
+
+        <form id="result">
+            <!-- NEW COUNT -->
+            <label style="font-family: Orbitron; color: #bcbcbc; margin-left: 10%">New Count: </label>
+            <br>
+            <textarea style="margin-left: 10%" id="newAmount"></textarea>
+            <br><br>
+            <!-- NEW VALUE -->
+            <label style="font-family: Orbitron; color: #bcbcbc; margin-left: 10%">New Value: </label>
+            <br>
+            <textarea style="margin-left: 10%" id="newValue"></textarea>
+        </form>
         <script type="text/javascript">
             var selected = document.getElementById("Product");
             var Radio = document.getElementById("OrderUP");
@@ -66,44 +80,53 @@
                 ]  
             }
             var arr = runArray();
-            function Order_Update(){
-                
+            function Order_Update(){   
                 //ADD OR REMOVE FROM COUNT
                 var x = parseFloat(document.getElementById("count").value);
                 if(document.getElementById("add").checked){
                     if(selected.value == "PC_Repair"){
                         arr[0][0] = arr[0][0] + +x;
+                        arr[0][2] = arr[0][0] * arr[0][1];
                         document.getElementById("newAmount").innerHTML =  arr[0][0];
+                        document.getElementById("newValue").innerHTML =  arr[0][2];
                     }
                     else if(selected.value == "Soft_Repair"){
                         arr[1][0] = arr[1][0] + +x;
+                        arr[1][2] = arr[1][0] * arr[1][1];
                         document.getElementById("newAmount").innerHTML =  arr[1][0];
+                        document.getElementById("newValue").innerHTML =  arr[1][2];
                     }
                     else if(selected.value == "Home_Support"){
                         arr[2][0] = arr[2][0] + +x;
+                        arr[2][2] = arr[2][0] * arr[2][1];
                         document.getElementById("newAmount").innerHTML =  arr[2][0];
+                        document.getElementById("newValue").innerHTML =  arr[2][2];
                     }
                 }
                 else if(document.getElementById("subtract").checked){
                     if(selected.value == "PC_Repair"){
                         arr[0][0] = arr[0][0] - +x;
+                        arr[0][2] = arr[0][0] * arr[0][1];
                         document.getElementById("newAmount").innerHTML =  arr[0][0];
+                        document.getElementById("newValue").innerHTML =  arr[0][2];
                     }
                     else if(selected.value == "Soft_Repair"){
                         arr[1][0] = arr[1][0] - +x;
+                        arr[1][2] = arr[1][0] * arr[1][1];
                         document.getElementById("newAmount").innerHTML =  arr[1][0];
+                        document.getElementById("newValue").innerHTML =  arr[1][2];
                     }
                     else if(selected.value == "Home_Support"){
                         arr[2][0] = arr[2][0] - +x;
+                        arr[2][2] = arr[2][0] * arr[2][1];
                         document.getElementById("newAmount").innerHTML =  arr[2][0];
+                        document.getElementById("newValue").innerHTML =  arr[2][2];
                     }
                 }
                 else{
                     alert("You have not selected a product to edit!");
                 }   
             }
-            
-            
             //POPULATE THE COMBOBOX
             function choice(){ 
                 if(selected.value == "PC_Repair"){       
@@ -126,8 +149,11 @@
                     document.getElementById("demo2").value = arr[2][2];
                 }
             }
-            
+            function reset(){
+                document.getElementById("form1").reset();
+                document.getElementById("OrderUP").reset();
+                document.getElementById("result").reset(); 
+            }
         </script>
     </body>
-
 </html>

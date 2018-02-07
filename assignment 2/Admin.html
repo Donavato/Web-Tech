@@ -9,7 +9,7 @@
     <body>
         <h1 style="text-align: center">I.T Admin Login</h1>
         <hr>
-        <form style="font-family: Orbitron; color: #bcbcbc; margin-left: 10%">
+        <form id="AdminForm" style="font-family: Orbitron; color: #bcbcbc; margin-left: 10%">
             <label>Password: &nbsp;&nbsp;&nbsp;</label>
             <input  name="adminBox" id="admin_password" type="password">
             <br><br>
@@ -18,13 +18,12 @@
             <br><br>
             <button type="button" onclick="savePass()">Enter</button>
             <button type="button" onclick="displayPass()">Show</button>
+            <button type="button" onclick="clearPass()">Clear</button>
         </form>
         <br>
         <form action="Home.html" style="font-family:Orbitron;color: #bcbcbc;margin-left: 10%">
             <input type="submit" value="Home Page" />
         </form>
-        
-
         <script type="text/javascript">
             var pass = document.getElementById("admin_password");
             var showpass =  document.getElementById("showPass");
@@ -34,6 +33,9 @@
             }
             function displayPass(){
                 showpass.value= localStorage.getItem("adminBox");   
+            }
+            function clearPass(){
+                document.getElementById("AdminForm").reset();
             }
         </script>
     </body>
