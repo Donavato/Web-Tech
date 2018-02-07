@@ -41,31 +41,70 @@
             <textarea id="demo2" style="align-items:center"></textarea> <br><br>
         </form>
         <br>
+        <fieldset style="width:400px">
+            <legend>Inventory Transaction </legend>
+            <form id="OrderUP">
+                    <input type="radio" name="Order" id="add">Ordered <br>
+                    <input type="radio" name="Order" id="subtract">Sold<br>
+                    <br><br>
+                    <label>Count:</label><br>
+                    <input style="width: 50px" id="count" type="number">
+            </form>
+        </fieldset>
+        <br><br>
+        <button type="submit" style="margin-left: 10%"onclick="Order_Update()">Update</button>
+        <textarea id="newAmount"></textarea>
         <script type="text/javascript">
+            var selected = document.getElementById("Product");
+            var Radio = document.getElementById("OrderUP");
+            //MAKE THE ARRAY
             function runArray(){    
                 return [
-                
-                    [10, 25, 250],
-                    [5, 40, 200],
-                    [6, 50, 255]
+                    [10, 25,0],
+                    [5, 40, 0],
+                    [6, 50, 0]
                 ]  
             }
             var arr = runArray();
-            var selected = document.getElementById("Product");
-            //var selectedValue = selected.options[selected.selectedIndex].value;
-
+            function Order_Update(){
+                
+                //ADD OR REMOVE FROM COUNT
+                var x = parseFloat(document.getElementById("count").value);
+                if(document.getElementById("add").checked){
+                    if(selected.value == "PC_Repair"){
+                        arr[0][0] = arr[0][0] + +x;
+                        //arr[0][0] += +x;
+                        document.getElementById("newAmount").innerHTML =  arr[0][0];
+                        console.log(arr[0][0]);
+                        console.log("x");
+                    }
+                }
+                else if(document.getElementById("subtract").checked){
+                    alert("Removing amount");
+                }
+                else{
+                    alert("doing nothing");
+                }
+            }
+            
+            
+            //POPULATE THE COMBOBOX
             function choice(){ 
                 if(selected.value == "PC_Repair"){       
+                    arr[0][2] = arr[0][0] * arr[0][1];
                     document.getElementById("demo").value = arr[0][0];
                     document.getElementById("demo1").value = arr[0][1];
                     document.getElementById("demo2").value = arr[0][2];
+                    
                 }
                 else if(selected.value == "Soft_Repair"){       
+                    arr[1][2] = arr[1][0] * arr[1][1];
                     document.getElementById("demo").value = arr[1][0];
                     document.getElementById("demo1").value = arr[1][1];
                     document.getElementById("demo2").value = arr[1][2];
                 }
-                else if(selected.value == "Home_Support"){       
+                else if(selected.value == "Home_Support"){
+                    arr[2][2] = arr[2][0] * arr[2][1];  
                     document.getElementById("demo").value = arr[2][0];
                     document.getElementById("demo1").value = arr[2][1];
                     document.getElementById("demo2").value = arr[2][2];

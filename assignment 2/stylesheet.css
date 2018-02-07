@@ -85,13 +85,12 @@ form {
     color: #bcbcbc;
 }
 fieldset legend {
-    padding-right: 10px;
-    padding-top: 15px;
+    font-size: 15px; 
+    color: #ff3a29; 
+    font-family: Orbitron
 }
 fieldset {
     display: block;
-    margin-left: 20%;
-    margin-right:20%;
 }
 h1{
     font-family: Orbitron;
