@@ -17,16 +17,14 @@
         </div>
         <h1 style="text-align: center">Login</h1>
         <hr>
-        <form style="font-family: Orbitron; color: #bcbcbc; margin-left: 10%">
+        <form id="LoginForm"style="font-family: Orbitron; color: #bcbcbc; margin-left: 10%">
             <label>Password: &nbsp;&nbsp;&nbsp;</label>
             <input  name="loginBox" id="user_password" type="password">
             <br><br>
-            <button type="button" onclick="compare()">Enter</button>
+            <button type="button" onclick="compare()">Login</button> &nbsp;&nbsp; 
+            <button type="button" onclick="clearPass()">Clear</button>
         </form>
         <br>
-        <form action="Inv.html" style="font-family:Orbitron;color: #bcbcbc;margin-left: 10%">
-            <input type="submit" value="Inventory" />
-        </form>
         <script type="text/javascript">
             var pass = document.getElementById("user_password");
 
@@ -37,6 +35,9 @@
                 else{
                     location.href = 'Inv.html';
                 }
+            }
+            function clearPass(){
+                document.getElementById("LoginForm").reset();
             }
         </script>
     </body>
