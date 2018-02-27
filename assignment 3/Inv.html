@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+    
+<!--==================================================================
+//
+// Web site:   I.T Support
+// Web page:   Inventory Manager Page v3
+// Title:      I.T Support's Website
+// Course:     CSC 5750
+// Homework:   3
+// Author:     Danny Haki
+// Date:       2/25/18
+// Description: This Page contains all the inventory we hold at the moment.
+//=================================================================-->
     <!-- HEADER -->
     <head>
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
         <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+        <title>Inventory Manager v3</title>
     </head>
     <!-- BODY -->
     <body onload="runArray()">
@@ -39,6 +52,9 @@
             <label>Value ($):</label>
             <br>
             <textarea id="demo2" style="align-items:center"></textarea> <br><br>
+            <textarea id="test" style="align-items:center"></textarea> <br><br>
+            <button onclick="packup()">click me</button>
+            <button onclick="output()">me next</button>
         </form>
         <br>
         <!-- RADIO BUTTONS -->
@@ -74,9 +90,9 @@
             //MAKE THE ARRAY
             function runArray(){    
                 return [
-                    [10, 25,0],
-                    [5, 40, 0],
-                    [7, 50, 0]
+                    [10, 25,250],
+                    [5, 40, 200],
+                    [7, 50, 350]
                 ]  
             }
             var arr = runArray();
@@ -153,6 +169,18 @@
                 document.getElementById("form1").reset();
                 document.getElementById("OrderUP").reset();
                 document.getElementById("result").reset(); 
+            }
+            //PACKING ARRAYS AND OUTPUTS
+            
+            function packup(){
+                var obj = JSON.stringify(arr)
+                localStorage.setItem("object", obj);
+                console.log(obj);
+            }
+            function output(){
+                var obj2 = JSON.parse(localStorage.getItem("object"));
+                console.log(obj2);
+                document.getElementById("test").innerHTML = obj2;
             }
         </script>
     </body>

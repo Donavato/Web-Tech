@@ -1,3 +1,11 @@
+/*==========================================================
+
+ Title: I.T Support - External Styles
+ Description:
+   This CSS page contains CSS external styles for the web 
+   site.
+
+==========================================================*/ 
 /*--------------------------------------------------------------------------------------------------
 NAVIGATION BAR
 --------------------------------------------------------------------------------------------------*/
@@ -83,6 +91,7 @@ EXTRAS
 }
 form {
     color: #bcbcbc;
+    font-family: Orbitron;
 }
 fieldset legend {
     font-size: 15px; 
