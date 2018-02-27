@@ -53,9 +53,9 @@
             <br>
             <textarea id="demo2" style="align-items:center"></textarea> <br><br>
             <textarea id="test" style="align-items:center"></textarea> <br><br>
-            <button onclick="packup()">click me</button>
-            <button onclick="output()">me next</button>
         </form>
+        <button onclick="packup()">click me</button>
+        <button onclick="output()">me next</button>
         <br>
         <!-- RADIO BUTTONS -->
         <fieldset style="width:400px">
@@ -180,7 +180,7 @@
             function output(){
                 var obj2 = JSON.parse(localStorage.getItem("object"));
                 console.log(obj2);
-                document.getElementById("test").innerHTML = obj2;
+                document.getElementById("test").value = obj2;
             }
         </script>
     </body>
