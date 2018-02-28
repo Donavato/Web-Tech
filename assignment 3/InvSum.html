@@ -2,7 +2,6 @@
 <html lang="en">
     
 <!--==================================================================
-//
 // Web site:   I.T Support
 // Web page:   Inventory Summery Page
 // Title:      I.T Support's Website
@@ -24,18 +23,22 @@
             <h1 style="text-align: center">Inventory Summary Page</h1>
             <hr>
             <label>Product count:</label>
-             <textarea style="align-items: center" ></textarea>
+            <textarea id="ProdCount" style="float:right;margin-right:65%"></textarea>
             <br><br>
             <label>Product Inventory Count:</label>
-            <textarea style="align-items: center" ></textarea>
+            <textarea id="InvCount" style="float:right;margin-right:65%"></textarea>
             <br><br>
             <label>Value:</label>
-            <textarea style="align-items: center" ></textarea>
+            <textarea id="Value" style="float:right;margin-right:65%"></textarea>
             <br><br><br>
-            <button>Manager</button>
+            <button><a href="Inv.html">Manager</a></button>
         </form>
         <script>
-        
+        function output(){
+                var obj2 = JSON.parse(localStorage.getItem("object"));
+                console.log(obj2);
+                document.getElementById("test").value = obj2;
+            }
         </script>
     </body>
 </html>
