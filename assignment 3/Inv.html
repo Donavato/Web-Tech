@@ -19,7 +19,7 @@
         <title>Inventory Manager v3</title>
     </head>
     <!-- BODY -->
-    <body onload="runArray()">
+    <body onload="runArray(); packup()">
         <div id="blackBox">
             <ul id="nav">
                 <li><a href="Home.html"><h2 style="font-size: 10px; font-family: Orbitron">Home</h2></a></li>
@@ -52,10 +52,9 @@
             <label>Value ($):</label>
             <br>
             <textarea id="demo2" style="align-items:center"></textarea> <br><br>
-            <textarea id="test" style="align-items:center"></textarea> <br><br>
         </form>
-        <button onclick="packup()">click me</button>
-        <button onclick="output()">me next</button>
+        <!--<button onclick="packup()">click me</button>-->
+        
         <br>
         <!-- RADIO BUTTONS -->
         <fieldset style="width:400px">
@@ -69,7 +68,7 @@
             </form>
         </fieldset>
         <br><br>
-        <button type="submit" style="margin-left: 10%"onclick="Order_Update()">Update</button> &nbsp;&nbsp;&nbsp;
+        <button type="submit" style="margin-left: 10%"onclick="Order_Update();choice()">Update</button> &nbsp;&nbsp;&nbsp;
         <button type="submit" onclick="reset()">Reset</button>
         <br><br>
 
@@ -84,6 +83,8 @@
             <br>
             <textarea style="margin-left: 10%" id="newValue"></textarea>
         </form>
+        <button><a href="InvSum.html" onclick="packup()" style="margin-left: 10%">To SUM PAGE</a></button>
+
         <script type="text/javascript">
             var selected = document.getElementById("Product");
             var Radio = document.getElementById("OrderUP");
@@ -173,14 +174,12 @@
             //PACKING ARRAYS AND OUTPUTS
             
             function packup(){
+                if(localStorage.getItem("object")==null)
+                    {
+                        window.alert("your local storage array was empty, were putting something in now.")
+                    }
                 var obj = JSON.stringify(arr)
                 localStorage.setItem("object", obj);
-                console.log(obj);
-            }
-            function output(){
-                var obj2 = JSON.parse(localStorage.getItem("object"));
-                console.log(obj2);
-                document.getElementById("test").value = obj2;
             }
         </script>
     </body>

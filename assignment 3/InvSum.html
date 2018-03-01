@@ -18,26 +18,35 @@
         <title>Inventory Manager v3</title>
     </head>
     <!-- BODY -->
-    <body>
+    <body onload="loadProductData()">
         <form>
             <h1 style="text-align: center">Inventory Summary Page</h1>
             <hr>
             <label>Product count:</label>
-            <textarea id="ProdCount" style="float:right;margin-right:65%"></textarea>
+            <textarea id="ProdCount" style="float:right;margin-right:55%"></textarea>
             <br><br>
             <label>Product Inventory Count:</label>
-            <textarea id="InvCount" style="float:right;margin-right:65%"></textarea>
+            <textarea id="InvCount" style="float:right;margin-right:55%"></textarea>
             <br><br>
             <label>Value:</label>
-            <textarea id="Value" style="float:right;margin-right:65%"></textarea>
+            <textarea id="Value" style="float:right;margin-right:55%"></textarea>
             <br><br><br>
             <button><a href="Inv.html">Manager</a></button>
+            <button><a onclick="loadProductData()">reload items</a></button>
         </form>
         <script>
-        function output(){
-                var obj2 = JSON.parse(localStorage.getItem("object"));
-                console.log(obj2);
-                document.getElementById("test").value = obj2;
+            
+        function loadProductData(){
+                var arr = JSON.parse(localStorage.getItem("object"));
+                var ProdCount;
+                var InvCount;
+                var Value;
+                ProdCount = arr[0][0] + arr[1][0] +arr[2][0];
+                InvCount = arr[0][1]+arr[1][1]+arr[2][1];
+                Value = arr[0][2]+arr[1][2]+arr[2][2];
+                document.getElementById("ProdCount").value = ProdCount;
+                document.getElementById("InvCount").value = InvCount;
+                document.getElementById("Value").value = Value;
             }
         </script>
     </body>
